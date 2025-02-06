@@ -1,44 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDG Productions</title>
+    <meta property="og:title" content="gdg_productions - Solutions Numériques Innovantes">
+    <meta property="og:description" content="Du charbon au diamant : Transformons vos idées en réalité numérique">
+    <meta property="og:image" content="GDG_PRODUCTIONS.png">
+    <meta name="description" content="gdg_productions offre des solutions numériques innovantes pour transformer vos idées en réalité.">
+    <title>gdg_productions - Solutions Numériques Innovantes</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
+    <nav class="main-nav">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">gdg_productions</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#founder">À Propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
     <header>
-        <h1>GDG Productions</h1>
+        <div class="logo-container">
+            <img src="GDG_PRODUCTIONS.png" alt="gdg_productions - Diamant Stellaire" title="gdg_productions">
+        </div>
+        <h1>gdg_productions</h1>
+        <p class="tagline">Du charbon brut au diamant stellaire : Sublimons vos idées en joyaux numériques étincelants</p>
+        <div class="constellation-overlay"></div>
     </header>
+
     <main>
-        <section id="mission-vision">
-            <h2>Our Mission and Vision</h2>
-            <p>At GDG Productions, our mission is to revolutionize the way businesses interact with technology by providing cutting-edge products and services that drive growth and efficiency. Our vision is to be a global leader in digital innovation, empowering businesses to achieve their full potential.</p>
-        </section>
-        <section id="team">
-            <h2>Meet Our Team</h2>
-            <div class="team-member">
-                <img src="team-member1.jpg" alt="Team Member 1">
-                <h3>John Doe</h3>
-                <p>CEO</p>
+        <section id="story" class="story-section" data-aos="fade-up">
+            <h2 class="section-title split-text">Notre Vision</h2>
+            <div class="story-content">
+                <div class="story-card">
+                    <i class="fas fa-gem story-icon"></i>
+                    <h3>Le Diamant Stellaire</h3>
+                    <p>Comme le charbon qui se transforme en diamant sous une pression intense, nous métamorphosons vos idées brutes en solutions numériques précieuses. Chaque projet est taillé avec précision pour révéler sa véritable valeur.</p>
+                </div>
+                <div class="story-card">
+                    <i class="fas fa-star story-icon"></i>
+                    <h3>La Constellation d'Orion</h3>
+                    <p>Tels les anciens navigateurs guidés par les étoiles, nous vous accompagnons à travers l'immensité du numérique. Notre expertise cible vos objectifs avec la précision de l'archer céleste.</p>
+                </div>
+                <div class="story-card">
+                    <i class="fas fa-rocket story-icon"></i>
+                    <h3>L'Alchimie Numérique</h3>
+                    <p>À l'image des alchimistes transformant le plomb en or, nous combinons créativité et technologie pour transmuter vos concepts en innovations digitales. Notre processus unique fusionne art et technique pour créer des solutions exceptionnelles.</p>
+                </div>
+                <div class="story-quote">
+                    <blockquote>
+                        "Dans les profondeurs de l'univers numérique, chaque idée est une étoile en devenir. Chez gdg_productions, nous voyons vos idées comme ces étincelles, prêtes à illuminer le monde. Guidés par la constellation d'Orion, symbole de notre détermination et de notre précision, nous transformons le charbon des concepts bruts en diamants stellaires du numérique. Rejoignez-nous dans cette aventure cosmique, et ensemble, façonnons l'avenir digital."
+                    </blockquote>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="team-member2.jpg" alt="Team Member 2">
-                <h3>Jane Smith</h3>
-                <p>CTO</p>
-            </div>
-            <!-- Add more team members as needed -->
         </section>
+
+        <section id="services" data-aos="fade-up">
+            <h2 class="section-title split-text">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade" data-aos-duration="600">
+                    <i class="fas fa-code"></i>
+                    <h3>Création de Sites Web</h3>
+                    <p>Sites vitrines, e-commerce et applications web sur mesure</p>
+                    <a href="#contact" class="service-link">En savoir plus</a>
+                </div>
+                <div class="service-card" data-aos="fade" data-aos-duration="600" data-aos-delay="100">
+                    <h3>Développement d'Applications</h3>
+                    <p>Solutions mobiles et logicielles adaptées à vos besoins</p>
+                </div>
+                <div class="service-card future" data-aos="fade" data-aos-duration="600" data-aos-delay="200">
+                    <h3>Projets Futurs</h3>
+                    <p>Création de contenu digital, marketing et marque de vêtements</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="approach" class="approach-section" data-aos="fade-up">
+            <h2 class="section-title split-text">Notre Approche</h2>
+            <div class="approach-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Le Charbon Brut</h3>
+                    <p>Nous recueillons vos idées dans leur forme la plus pure</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>La Transformation</h3>
+                    <p>Notre expertise façonne et affine votre vision</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Le Diamant Stellaire</h3>
+                    <p>Votre projet brille de mille feux dans l'univers digital</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" data-aos="fade-up">
+            <h2 class="section-title split-text">Nos Réalisations</h2>
+            <div class="portfolio-grid">
+                <article class="portfolio-item" data-aos="fade-up">
+                    <div class="portfolio-media">
+                        <div class="video-container">
+                            <video>
+                                <source src="DropInVid.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                            <div class="video-overlay">
+                                <span class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </span>
+                                <span class="video-text">Voir la démo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>DropIn</h3>
+                        <p>Plateforme d'aide aux étudiants en difficulté, facilitant le soutien et l'accompagnement académique.</p>
+                        <div class="tech-stack">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/GnimGregoireDAO/DropIn" target="_blank" rel="noopener" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="founder" data-aos="fade-up">
+            <div class="founder-name split-text">Gnim Grégoire DAO</div>
+            <div class="founder-title">Fondateur & Développeur</div>
+            <p>Passionné par l'innovation numérique et la création de solutions sur mesure</p>
+        </section>
+
+        <section id="contact" class="contact-section" data-aos="fade-up">
+            <h2>Contactez-nous</h2>
+            <div class="contact-links">
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/GnimGregoireDAO" target="_blank" rel="noopener">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/gdg_productions_x_dg/" target="_blank" rel="noopener">Instagram</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+14382829977">+1 438-282-9977</a>
+                </div>
+            </div>
+        </section>
+
     </main>
+
     <footer>
-        <p>Contact us at: contact@gdgproductions.com</p>
-        <p>Follow us on social media:</p>
-        <ul>
-            <li><a href="https://facebook.com/gdgproductions">Facebook</a></li>
-            <li><a href="https://twitter.com/gdgproductions">Twitter</a></li>
-            <li><a href="https://linkedin.com/company/gdgproductions">LinkedIn</a></li>
-        </ul>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>gdg_productions</h3>
+                <p>Transformez vos idées en réalité numérique</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="mailto:contact@gdg-productions.com">Contact</a></li>
+                    <li><a href="#services">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/GnimGregoireDAO" target="_blank" rel="noopener">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/gdg_productions_x_dg/" target="_blank" rel="noopener">Instagram</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+14382829977">+1 438-282-9977</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>gdg_productions © 2024 | Tous droits réservés</p>
+        </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
