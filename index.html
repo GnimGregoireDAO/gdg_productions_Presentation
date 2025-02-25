@@ -1,93 +1,50 @@
 <!DOCTYPE html>
-<!-- Déclaration du type de document HTML5 -->
-
 <html lang="fr" class="no-js">
-<!-- Élément racine avec langue française et classe no-js pour la détection de JavaScript -->
-
 <head>
-    <!-- Section d'en-tête contenant les métadonnées et ressources -->
-    
-    <!-- Encodage des caractères en UTF-8 pour support multilingue -->
     <meta charset="UTF-8">
-    
-    <!-- Configuration de la vue mobile pour le responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Métadonnées pour le partage social (Open Graph) -->
     <meta property="og:title" content="gdg_productions - Solutions Numériques Innovantes">
     <meta property="og:description" content="Du charbon au diamant : Transformons vos idées en réalité numérique">
     <meta property="og:image" content="GDG_PRODUCTIONS.png">
-    
-    <!-- Description pour les moteurs de recherche -->
     <meta name="description" content="gdg_productions offre des solutions numériques innovantes pour transformer vos idées en réalité.">
-    
-    <!-- Titre de la page dans l'onglet du navigateur -->
     <title>gdg_productions - Solutions Numériques Innovantes</title>
-
-    <link rel="icon" href="GDG_PRODUCTIONS.png" type="image/x-icon">
-   
-    <!-- Liens vers les ressources externes -->
-    <!-- Feuille de style personnalisée -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Police Montserrat depuis Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Bibliothèque d'animations AOS (Animate On Scroll) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    
-    <!-- Scripts GSAP pour les animations avancées -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Script de détection JavaScript -->
     <script>document.documentElement.classList.remove('no-js');</script>
 </head>
-
 <body>
-    <!-- Barre de navigation fixe -->
     <nav class="main-nav">
         <div class="nav-content">
-            <!-- Logo/titre du site -->
             <a href="#" class="nav-logo">gdg_productions</a>
-            
-            <!-- Menu de navigation principal -->
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#founder">À Propos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            
-            <!-- Bouton menu hamburger pour mobile -->
             <button class="menu-toggle" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- En-tête principal avec logo et slogan -->
     <header>
-        <!-- Conteneur du logo avec effet de survol -->
         <div class="logo-container">
             <img src="GDG_PRODUCTIONS.png" alt="gdg_productions - Diamant Stellaire" title="gdg_productions">
         </div>
         <h1>gdg_productions</h1>
         <p class="tagline">Du charbon brut au diamant stellaire : Sublimons vos idées en joyaux numériques étincelants</p>
-        <!-- Overlay avec effet constellation -->
         <div class="constellation-overlay"></div>
     </header>
 
-    <!-- Contenu principal -->
     <main>
-        <!-- Section Histoire et Vision -->
         <section id="story" class="story-section" data-aos="fade-up">
             <h2 class="section-title split-text">Notre Vision</h2>
             <div class="story-content">
-                <!-- Cartes présentant les aspects de la vision -->
                 <div class="story-card">
                     <i class="fas fa-gem story-icon"></i>
                     <h3>Le Diamant Stellaire</h3>
@@ -111,7 +68,6 @@
             </div>
         </section>
 
-        <!-- Section Services -->
         <section id="services" data-aos="fade-up">
             <h2 class="section-title split-text">Nos Services</h2>
             <div class="services-grid">
@@ -132,7 +88,6 @@
             </div>
         </section>
 
-        <!-- Section Approche -->
         <section id="approach" class="approach-section" data-aos="fade-up">
             <h2 class="section-title split-text">Notre Approche</h2>
             <div class="approach-steps">
@@ -154,7 +109,6 @@
             </div>
         </section>
 
-        <!-- Section Portfolio -->
         <section id="portfolio" data-aos="fade-up">
             <h2 class="section-title split-text">Nos Réalisations</h2>
             <div class="portfolio-grid">
@@ -174,7 +128,7 @@
                         </div>
                     </div>
                     <div class="portfolio-content">
-                        <h3>DropIn (en developpemment)</h3>
+                        <h3>DropIn (En développement)</h3>
                         <p>Plateforme d'aide aux étudiants en difficulté, facilitant le soutien et l'accompagnement académique.</p>
                         <div class="tech-stack">
                             <span>HTML/CSS</span>
@@ -193,14 +147,12 @@
             </div>
         </section>
 
-        <!-- Section Fondateur -->
         <section id="founder" data-aos="fade-up">
             <div class="founder-name split-text">Gnim Grégoire DAO</div>
             <div class="founder-title">Fondateur & Développeur</div>
             <p>Passionné par l'innovation numérique et la création de solutions sur mesure</p>
         </section>
 
-        <!-- Section Contact -->
         <section id="contact" class="contact-section" data-aos="fade-up">
             <h2>Contactez-nous</h2>
             <div class="contact-links">
@@ -218,26 +170,21 @@
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <div class="footer-content">
-            <!-- Informations de l'entreprise -->
             <div class="footer-info">
                 <h3>gdg_productions</h3>
                 <p>Transformez vos idées en réalité numérique</p>
             </div>
-            
-            <!-- Liens de navigation rapide -->
             <div class="footer-links">
                 <ul>
                     <li><a href="mailto:contact@gdg-productions.com">Contact</a></li>
                     <li><a href="#services">Services</a></li>
                 </ul>
             </div>
-            
-            <!-- Liens sociaux -->
             <div class="footer-social">
                 <div class="contact-item">
                     <i class="fab fa-github"></i>
@@ -253,17 +200,12 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Copyright -->
         <div class="footer-bottom">
             <p>gdg_productions © 2024 | Tous droits réservés</p>
         </div>
     </footer>
 
-    <!-- Scripts externes -->
-    <!-- Bibliothèque d'animations au défilement -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <!-- Script personnalisé -->
     <script src="script.js"></script>
 </body>
 </html>

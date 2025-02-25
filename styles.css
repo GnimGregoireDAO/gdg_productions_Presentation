@@ -1,16 +1,86 @@
 :root {
-    --primary-dark: #1B1B3A;     /* Bleu nuit profond */
-    --primary-light: #4B4BE8;    /* Bleu électrique */
-    --accent-gold: #FFD700;      /* Or stellaire */
-    --accent-purple: #9D4EDD;    /* Violet cosmique */
-    --bg-gradient-1: #0D0D1F;    /* Fond spatial foncé */
-    --bg-gradient-2: #1B1B3A;    /* Fond spatial medium */
-    --text-light: #FFFFFF;       /* Texte clair */
+    --primary-dark: #4A3636;     /* Brun rosé foncé */
+    --primary-light: #B47B84;    /* Brun rosé clair */
+    --accent-gold: #FFD700;      /* Or pour les étoiles */
+    --accent-brown: #8B4513;     /* Brun accent pour motifs africains */
+    --bg-gradient-1: #2B1B1B;    /* Fond spatial foncé avec teinte brune */
+    --bg-gradient-2: #4A3636;    /* Fond spatial medium avec teinte brune */
+    --text-light: #FFF5F5;       /* Blanc chaud */
     --text-gold: #FFD700;        /* Texte doré */
+    --african-pattern-color: #B47B84; /* Couleur des motifs africains */
     --nav-height: 60px;  /* Reduced from 80px to 60px */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --star-color: #FFD700;
     --constellation-color: rgba(124, 77, 255, 0.2);
+    --nav-bg: rgba(74, 54, 54, 0.95);      /* Brun rosé pour la nav */
+    --nav-hover: rgba(180, 123, 132, 0.2); /* Couleur hover plus douce */
+    --nav-border: rgba(180, 123, 132, 0.3); /* Bordure subtile */
+    --nav-text: #FFF5F5;                    /* Texte clair */
+    --nav-text-hover: #FFD700;              /* Texte hover en or */
+    --nav-shadow: rgba(43, 27, 27, 0.2);    /* Ombre douce */
+}
+
+/* Ajout du motif africain en arrière-plan */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("africa2.jpg");
+    background-size: 300px 300px; /* Ajuste la taille du motif */
+    background-repeat: repeat; /* Assure la répétition du motif */
+    opacity: 0.08; /* Réduit légèrement l'opacité */
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: overlay; /* Améliore l'intégration avec l'arrière-plan */
+    filter: contrast(0.8) sepia(0.2); /* Ajuste les couleurs pour mieux correspondre au thème */
+}
+
+/* Effet d'étoiles scintillantes */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+@keyframes sunGlow {
+    0% {
+        filter: drop-shadow(0 0 5px var(--accent-gold));
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px var(--accent-gold));
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+    }
+    100% {
+        filter: drop-shadow(0 0 5px var(--accent-gold));
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { 
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    transition: animation-delay 0.5s ease;
+}
+
+.star.twinkling {
+    animation: starTwinkle 2s ease-in-out infinite;
 }
 
 body {
@@ -65,6 +135,10 @@ header {
     filter: drop-shadow(0 0 15px var(--accent-purple));
 }
 
+.logo-container.glowing {
+    animation: sunGlow 3s ease-in-out infinite;
+}
+
 @keyframes glow {
     from { 
         filter: drop-shadow(0 0 5px var(--star-glow));
@@ -78,6 +152,9 @@ header {
 
 main {
     padding: 20px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(1px); /* Ajoute un léger flou pour améliorer la lisibilité */
 }
 
 #mission-vision {
@@ -91,11 +168,12 @@ main {
     padding: 3rem 2rem;
 }
 
+/* Modification des cartes de service */
 .service-card {
-    background: rgba(75, 75, 232, 0.05);
+    background: linear-gradient(145deg, rgba(180, 123, 132, 0.1), rgba(74, 54, 54, 0.2));
+    border: 1px solid var(--primary-light);
     border-radius: 15px;
     padding: 1.5rem;
-    border: 1px solid var(--accent-purple);
     transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
     backdrop-filter: blur(5px);
     opacity: 0;  /* Start invisible */
@@ -196,6 +274,9 @@ footer {
     padding: 2rem;
     text-align: center;
     border-top: 2px solid var(--accent-gold);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(1px); /* Ajoute un léger flou pour améliorer la lisibilité */
 }
 
 footer ul {
@@ -234,14 +315,15 @@ footer ul li a:hover {
     margin: 2rem 0;
 }
 
+/* Modification des boutons et liens */
 .contact-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.8rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(145deg, rgba(180, 123, 132, 0.1), rgba(74, 54, 54, 0.2));
     border-radius: 50px;
-    border: 1px solid var(--accent-purple);
+    border: 1px solid var(--primary-light);
     transition: all 0.3s ease;
 }
 
@@ -269,10 +351,15 @@ footer ul li a:hover {
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(27, 27, 58, 0.85); /* Slightly more transparent */
-    backdrop-filter: blur(10px);
+    background: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 2px 10px var(--nav-shadow);
     z-index: 1000;
     transition: var(--transition-smooth);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(1px); /* Ajoute un léger flou pour améliorer la lisibilité */
 }
 
 .nav-content {
@@ -282,36 +369,104 @@ footer ul li a:hover {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    padding: 0.5rem 2rem; /* Reduced vertical padding */
+    padding: 0 2rem;
+}
+
+.nav-logo {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: var(--transition-smooth);
+}
+
+.nav-logo:hover {
+    color: var(--nav-text-hover);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
-    font-size: 0.9rem; /* Slightly smaller text */
+}
+
+.nav-links a {
+    color: var(--nav-text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--nav-text-hover);
+    background: var(--nav-hover);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--nav-text-hover);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 80%;
+}
+
+/* Ajustement pour le menu mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        background: var(--nav-bg);
+        border-bottom: 1px solid var(--nav-border);
+        box-shadow: 0 2px 10px var(--nav-shadow);
+    }
+
+    .menu-toggle span {
+        background: var(--nav-text);
+    }
 }
 
 /* Portfolio styles */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: 1fr;  /* Change to single column */
-    gap: 2rem;
-    padding: 2rem 0;
-    max-width: 1000px;  /* Augmenté de 800px à 1000px */
-    margin: 0 auto;
-}
-
+/* Modification des bordures avec motifs africains */
 .portfolio-item {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.03);
     transition: var(--transition-smooth);
-    border: 1px solid var(--accent-purple);
+    border: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem;  /* Added padding around the content */
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-light), var(--accent-brown));
+    z-index: -1;
+    border-radius: 17px;
+    opacity: 0.5;
+    background-size: 20px 20px;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--african-pattern-color) 0,
+        var(--african-pattern-color) 1px,
+        transparent 0,
+        transparent 50%
+    );
 }
 
 .portfolio-item:hover {
@@ -386,17 +541,18 @@ footer ul li a:hover {
     margin-top: 1.5rem;
 }
 
+/* Modification des boutons et liens */
 .project-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: linear-gradient(145deg, rgba(180, 123, 132, 0.1), rgba(74, 54, 54, 0.2));
     border-radius: 25px;
     color: var(--text-gold);
     text-decoration: none;
     transition: var(--transition-smooth);
-    border: 1px solid var(--accent-purple);
+    border: 1px solid var(--primary-light);
 }
 
 .project-link:hover {
@@ -555,6 +711,18 @@ footer ul li a:hover {
     pointer-events: none;
 }
 
+/* Ajout d'étoiles en arrière-plan */
+.constellation-overlay::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at center, var(--accent-gold) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    animation: twinkle 3s infinite alternate;
+}
+
 .story-section {
     padding: 4rem 2rem;
     background: linear-gradient(to bottom, var(--bg-gradient-1), var(--bg-gradient-2));
@@ -567,16 +735,39 @@ footer ul li a:hover {
     margin-top: 3rem;
 }
 
+/* Modification des bordures avec motifs africains */
 .story-card {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 15px;
     padding: 2rem;
-    border: 1px solid var(--accent-purple);
+    border: none;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
+}
+
+.story-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-light), var(--accent-brown));
+    z-index: -1;
+    border-radius: 17px;
+    opacity: 0.5;
+    background-size: 20px 20px;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--african-pattern-color) 0,
+        var (--african-pattern-color) 1px,
+        transparent 0,
+        transparent 50%
+    );
 }
 
 .story-card:hover {
@@ -636,4 +827,18 @@ footer ul li a:hover {
     justify-content: center;
     margin: 0 auto 1rem;
     font-weight: bold;
+}
+
+/* Ajout d'un nouveau motif africain pour les séparateurs */
+.section-divider {
+    height: 4px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--african-pattern-color) 0,
+        var(--african-pattern-color) 8px,
+        transparent 8px,
+        transparent 16px
+    );
+    margin: 2rem 0;
+    opacity: 0.3;
 }

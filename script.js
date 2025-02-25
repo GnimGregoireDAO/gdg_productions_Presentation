@@ -84,15 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Floating animation for the logo
-    gsap.to('.logo-container', {
-        y: 20,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut"
-    });
-
     // Initialize AOS with simpler settings
     AOS.init({
         duration: 800,
@@ -162,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    createStars();
+    initLogoAnimation();
     displayWelcomeMessage();
 });
 
@@ -193,4 +186,55 @@ function handleFormSubmission(event) {
     event.preventDefault();
     // Add form submission handling logic here
     alert('Form submitted successfully!');
+}
+
+// Remplacer l'animation flottante existante par celle-ci
+function initLogoAnimation() {
+    const logoContainer = document.querySelector('.logo-container');
+    const stars = document.querySelectorAll('.star');
+    
+    gsap.to(logoContainer, {
+        y: -15, // Réduit l'amplitude du mouvement
+        duration: 2.5, // Ralentit légèrement l'animation
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        onUpdate: function() {
+            const progress = this.progress();
+            if (progress < 0.5) {
+                logoContainer.classList.add('glowing');
+                stars.forEach(star => {
+                    star.style.animationPlayState = 'paused';
+                    star.style.opacity = '0.2'; // Réduit l'opacité des étoiles
+                });
+            } else {
+                logoContainer.classList.remove('glowing');
+                stars.forEach((star, index) => {
+                    star.classList.add('twinkling');
+                    star.style.animationDelay = `${(index % 7) * 0.3}s`; // Ralentit le scintillement
+                    star.style.animationPlayState = 'running';
+                });
+            }
+        }
+    });
+}
+
+// Modifier la fonction createStars pour ajouter plus de variation
+function createStars() {
+    const starsContainer = document.createElement('div');
+    starsContainer.classList.add('stars-container');
+    document.body.appendChild(starsContainer);
+
+    const starCount = 150; // Augmenté pour plus d'effet
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        // Tailles variables pour plus de profondeur
+        const size = 1 + Math.random() * 2;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        starsContainer.appendChild(star);
+    }
 }
