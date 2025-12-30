@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://gdgproductions.ca/</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://gdgproductions.ca/logogdgproductions.jpg</image:loc>
+      <image:title>GDG Productions Logo</image:title>
+      <image:caption>Logo de GDG Productions - Agence de développement numérique</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://gdgproductions.ca/about</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://gdgproductions.ca/BackgroundStoryTelling.png</image:loc>
+      <image:title>Notre Histoire</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gdgproductions.ca/L%27origineDuDiamant.png</image:loc>
+      <image:title>L'Origine du Diamant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gdgproductions.ca/LaConstellationOrion.png</image:loc>
+      <image:title>La Constellation d'Orion</image:title>
+    </image:image>
+  </url>
+
+</urlset>

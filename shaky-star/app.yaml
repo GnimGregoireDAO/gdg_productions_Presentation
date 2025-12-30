@@ -1,0 +1,24 @@
+# Configuration pour Google Cloud Run
+runtime: custom
+env: flex
+
+# Health check
+health_check:
+  enable_health_check: true
+  check_interval_sec: 5
+  timeout_sec: 4
+  unhealthy_threshold: 2
+  healthy_threshold: 2
+
+# Ressources
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+# Scaling automatique
+automatic_scaling:
+  min_num_instances: 0
+  max_num_instances: 10
+  cool_down_period_sec: 60
+  cpu_utilization:
+    target_utilization: 0.65

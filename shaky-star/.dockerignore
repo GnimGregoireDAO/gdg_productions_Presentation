@@ -1,0 +1,14 @@
+# .dockerignore pour optimiser le build
+node_modules
+.astro
+dist
+.git
+.github
+.vscode
+*.md
+!README.md
+.env*
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,52 @@
+steps:
+  # Build l'application Astro
+  - name: 'node:20-alpine'
+    entrypoint: npm
+    args: ['ci']
+    
+  - name: 'node:20-alpine'
+    entrypoint: npm
+    args: ['run', 'build']
+
+  # Build l'image Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/gdg-productions:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/gdg-productions:latest'
+      - '.'
+
+  # Push l'image vers Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/gdg-productions:$COMMIT_SHA'
+
+  # Déployer sur Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'gdg-productions'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/gdg-productions:$COMMIT_SHA'
+      - '--region'
+      - 'northamerica-northeast1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--memory'
+      - '512Mi'
+      - '--port'
+      - '8080'
+
+images:
+  - 'gcr.io/$PROJECT_ID/gdg-productions:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/gdg-productions:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: 'E2_HIGHCPU_8'

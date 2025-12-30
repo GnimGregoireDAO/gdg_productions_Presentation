@@ -1,0 +1,832 @@
+---
+import "../styles.css";
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Primary Meta Tags -->
+	<title>GDG Productions - Développement Web & Applications Mobiles à Montréal</title>
+	<meta name="title" content="GDG Productions - Développement Web & Applications Mobiles à Montréal">
+	<meta name="description" content="Par-delà les nuages, au-delà du ciel, GDG Productions transforme vos idées en réalité numérique. Développement web, applications mobiles et design à Montréal. Faites briller vos idées dans l'univers digital.">
+	<meta name="keywords" content="développement web Montréal, applications mobiles, design web, développeur fullstack, React, Node.js, GDG Productions, transformation digitale, solutions numériques Canada">
+	<meta name="author" content="GDG Productions">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="language" content="French">
+	<meta name="revisit-after" content="7 days">
+	<meta name="rating" content="general">
+	<link rel="canonical" href="https://gdgproductions.ca/">
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://gdgproductions.ca/">
+	<meta property="og:title" content="GDG Productions - Développement Web & Applications Mobiles">
+	<meta property="og:description" content="Par-delà les nuages, transformez vos idées en réalité numérique. Faites briller vos projets dans l'univers digital.">
+	<meta property="og:image" content="https://gdgproductions.ca/logogdgproductions.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:locale" content="fr_CA">
+	<meta property="og:site_name" content="GDG Productions">
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://gdgproductions.ca/">
+	<meta property="twitter:title" content="GDG Productions - Développement Web & Applications Mobiles">
+	<meta property="twitter:description" content="Par-delà les nuages, transformez vos idées en réalité numérique. Faites briller vos projets dans l'univers digital.">
+	<meta property="twitter:image" content="https://gdgproductions.ca/logogdgproductions.jpg">
+	
+	<!-- Geo Tags -->
+	<meta name="geo.region" content="CA-QC">
+	<meta name="geo.placename" content="Montreal">
+	<meta name="geo.position" content="45.5017;-73.5673">
+	<meta name="ICBM" content="45.5017, -73.5673">
+	
+	<!-- AI Optimization / Schema.org JSON-LD -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Organization",
+	  "name": "GDG Productions",
+	  "url": "https://gdgproductions.ca",
+	  "logo": "https://gdgproductions.ca/logogdgproductions.jpg",
+	  "description": "GDG Productions est une agence de développement numérique spécialisée dans le développement web, les applications mobiles et le design sur mesure basée à Montréal, Canada.",
+	  "address": {
+	    "@type": "PostalAddress",
+	    "addressLocality": "Montreal",
+	    "addressRegion": "QC",
+	    "addressCountry": "CA"
+	  },
+	  "contactPoint": {
+	    "@type": "ContactPoint",
+	    "telephone": "+1-XXX-XXX-XXXX",
+	    "contactType": "customer service",
+	    "email": "contact@gdgproductions.com",
+	    "availableLanguage": ["French", "English"]
+	  },
+	  "sameAs": [
+	    "https://www.instagram.com/gdg_productions_x_dg/",
+	    "https://github.com/GnimGregoireDAO/GnimGregoireDAO"
+	  ],
+	  "founder": {
+	    "@type": "Person",
+	    "name": "Grégoire Gnim DAO"
+	  },
+	  "slogan": "Par-delà les nuages, au-delà du ciel - Transformons vos idées en réalité numérique",
+	  "knowsAbout": [
+	    "Web Development",
+	    "Mobile Application Development",
+	    "UI/UX Design",
+	    "Digital Transformation",
+	    "React",
+	    "Node.js",
+	    "Astro",
+	    "TypeScript"
+	  ],
+	  "areaServed": {
+	    "@type": "GeoCircle",
+	    "geoMidpoint": {
+	      "@type": "GeoCoordinates",
+	      "latitude": "45.5017",
+	      "longitude": "-73.5673"
+	    },
+	    "geoRadius": "50000"
+	  },
+	  "offers": [
+	    {
+	      "@type": "Service",
+	      "name": "Développement Web",
+	      "description": "Sites web modernes et performants utilisant les dernières technologies"
+	    },
+	    {
+	      "@type": "Service",
+	      "name": "Applications Mobiles",
+	      "description": "Applications natives et cross-platform pour iOS et Android"
+	    },
+	    {
+	      "@type": "Service",
+	      "name": "Design & Branding",
+	      "description": "Identité visuelle unique et expériences utilisateur exceptionnelles"
+	    }
+	  ]
+	}
+	</script>
+	
+	<!-- Breadcrumb Schema for AI -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [{
+	    "@type": "ListItem",
+	    "position": 1,
+	    "name": "Accueil",
+	    "item": "https://gdgproductions.ca/"
+	  }]
+	}
+	</script>
+	
+	<!-- WebSite Schema for AI Search -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "WebSite",
+	  "name": "GDG Productions",
+	  "url": "https://gdgproductions.ca",
+	  "potentialAction": {
+	    "@type": "SearchAction",
+	    "target": "https://gdgproductions.ca/?s={search_term_string}",
+	    "query-input": "required name=search_term_string"
+	  }
+	}
+	</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+	<!-- Floating Geometric Shapes -->
+	<div class="geometric-bg">
+		<div class="shape shape-diamond"></div>
+		<div class="shape shape-triangle"></div>
+		<div class="shape shape-circle"></div>
+		<div class="shape shape-star"></div>
+		<div class="shape shape-pentagon"></div>
+	</div>
+
+	<!-- Navigation -->
+	<nav class="main-nav">
+		<div class="nav-container">
+			<a href="#home" class="nav-logo">
+				<span class="logo-text">GDG</span>
+				<span class="logo-subtitle">PRODUCTIONS</span>
+			</a>
+			<button class="menu-toggle" aria-label="Toggle menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="nav-links">
+				<li><a href="#services">Services</a></li>
+				<li><a href="#approach">Approche</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li class="nav-about"><a href="/about" class="btn-about">À Propos</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section id="home" class="hero">
+		<div class="hero-content">
+			<div class="logo-container" data-aos="zoom-in">
+				<img src="/logogdgproductions.jpg" alt="GDG Productions Logo" class="hero-logo">
+				<div class="logo-glow"></div>
+			</div>
+			<h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+				<span class="title-line">GDG</span>
+				<span class="title-line gold">PRODUCTIONS</span>
+			</h1>
+			<p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
+				Du charbon brut au diamant stellaire
+			</p>
+			<p class="hero-description" data-aos="fade-up" data-aos-delay="600">
+				Sublimons vos idées en joyaux numériques étincelants
+			</p>
+			<div class="hero-cta" data-aos="fade-up" data-aos-delay="800">
+				<a href="#contact" class="btn btn-primary">
+					<span>Démarrer un Projet</span>
+					<i class="fas fa-arrow-right"></i>
+				</a>
+				<a href="#services" class="btn btn-secondary">
+					<span>Découvrir nos Services</span>
+				</a>
+			</div>
+		</div>
+		<div class="scroll-indicator">
+			<span>Défiler</span>
+			<div class="scroll-arrow"></div>
+		</div>
+	</section>
+
+	<!-- Story Section -->
+	<section id="story" class="story-section">
+		<div class="container">
+			<h2 class="section-title" data-aos="fade-up">
+				<span class="title-decorator"></span>
+				Notre Vision
+				<span class="title-decorator"></span>
+			</h2>
+			<div class="story-grid">
+				<div class="story-card" data-aos="fade-up" data-aos-delay="100">
+					<div class="story-icon">
+						<i class="fas fa-gem"></i>
+					</div>
+					<h3>Le Diamant Stellaire</h3>
+					<p>Comme le charbon qui se transforme en diamant sous une pression intense, nous métamorphosons vos idées brutes en solutions numériques précieuses. Chaque projet est taillé avec précision pour révéler sa véritable valeur.</p>
+				</div>
+				<div class="story-card" data-aos="fade-up" data-aos-delay="200">
+					<div class="story-icon">
+						<i class="fas fa-star"></i>
+					</div>
+					<h3>La Constellation d'Orion</h3>
+					<p>Tels les anciens navigateurs guidés par les étoiles, nous vous accompagnons à travers l'immensité du numérique. Notre expertise cible vos objectifs avec la précision de l'archer céleste.</p>
+				</div>
+				<div class="story-card" data-aos="fade-up" data-aos-delay="300">
+					<div class="story-icon">
+						<i class="fas fa-rocket"></i>
+					</div>
+					<h3>L'Alchimie Numérique</h3>
+					<p>À l'image des alchimistes transformant le plomb en or, nous combinons créativité et technologie pour transmuter vos concepts en innovations digitales exceptionnelles.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Section -->
+	<section id="services" class="services-section">
+		<div class="container">
+			<h2 class="section-title" data-aos="fade-up">
+				<span class="title-decorator"></span>
+				Nos Services
+				<span class="title-decorator"></span>
+			</h2>
+			<div class="services-grid">
+				<div class="service-card" data-aos="fade-up" data-aos-delay="100">
+					<div class="service-icon">
+						<i class="fas fa-code"></i>
+					</div>
+					<h3>Développement Web</h3>
+					<p>Sites vitrines, e-commerce et applications web sur mesure, conçus avec les dernières technologies pour une performance optimale.</p>
+					<ul class="service-features">
+						<li><i class="fas fa-check"></i> Design responsive</li>
+						<li><i class="fas fa-check"></i> SEO optimisé</li>
+						<li><i class="fas fa-check"></i> Performance maximale</li>
+					</ul>
+					<a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+				</div>
+				<div class="service-card featured" data-aos="fade-up" data-aos-delay="200">
+					<div class="featured-badge">Populaire</div>
+					<div class="service-icon">
+						<i class="fas fa-mobile-alt"></i>
+					</div>
+					<h3>Applications Mobiles</h3>
+					<p>Solutions mobiles natives et cross-platform adaptées à vos besoins, avec une expérience utilisateur fluide et intuitive.</p>
+					<ul class="service-features">
+						<li><i class="fas fa-check"></i> iOS & Android</li>
+						<li><i class="fas fa-check"></i> Interface intuitive</li>
+						<li><i class="fas fa-check"></i> Intégrations API</li>
+					</ul>
+					<a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+				</div>
+				<div class="service-card" data-aos="fade-up" data-aos-delay="300">
+					<div class="service-icon">
+						<i class="fas fa-palette"></i>
+					</div>
+					<h3>Design & Branding</h3>
+					<p>Identité visuelle, logo, charte graphique et design d'interface pour marquer les esprits et créer une image mémorable.</p>
+					<ul class="service-features">
+						<li><i class="fas fa-check"></i> Identité unique</li>
+						<li><i class="fas fa-check"></i> UX/UI Design</li>
+						<li><i class="fas fa-check"></i> Support complet</li>
+					</ul>
+					<a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Approach Section -->
+	<section id="approach" class="approach-section">
+		<div class="container">
+			<h2 class="section-title" data-aos="fade-up">
+				<span class="title-decorator"></span>
+				Notre Approche
+				<span class="title-decorator"></span>
+			</h2>
+			<div class="approach-timeline">
+				<div class="timeline-item" data-aos="fade-right">
+					<div class="timeline-number">01</div>
+					<div class="timeline-content">
+						<h3>Le Charbon Brut</h3>
+						<p>Nous recueillons vos idées dans leur forme la plus pure et analysons vos besoins avec attention.</p>
+					</div>
+				</div>
+				<div class="timeline-item" data-aos="fade-left">
+					<div class="timeline-number">02</div>
+					<div class="timeline-content">
+						<h3>La Pression Créative</h3>
+						<p>Application de notre expertise technique et créative pour façonner votre projet avec précision.</p>
+					</div>
+				</div>
+				<div class="timeline-item" data-aos="fade-right">
+					<div class="timeline-number">03</div>
+					<div class="timeline-content">
+						<h3>Le Polissage Stellaire</h3>
+						<p>Raffinement et optimisation pour obtenir un résultat brillant et performant.</p>
+					</div>
+				</div>
+				<div class="timeline-item" data-aos="fade-left">
+					<div class="timeline-number">04</div>
+					<div class="timeline-content">
+						<h3>Le Diamant Révélé</h3>
+						<p>Livraison d'une solution digitale exceptionnelle qui illumine votre présence en ligne.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Portfolio Section -->
+	<section id="portfolio" class="portfolio-section">
+		<div class="container">
+			<h2 class="section-title" data-aos="fade-up">
+				<span class="title-decorator"></span>
+				Nos Réalisations
+				<span class="title-decorator"></span>
+			</h2>
+			<div class="portfolio-grid">
+				<div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
+					<div class="portfolio-image">
+						<div class="portfolio-placeholder">
+							<i class="fas fa-laptop-code"></i>
+						</div>
+						<div class="portfolio-overlay">
+							<h3>Projet Web Innovant</h3>
+							<p>Site e-commerce moderne</p>
+							<a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
+					<div class="portfolio-image">
+						<div class="portfolio-placeholder">
+							<i class="fas fa-mobile-screen"></i>
+						</div>
+						<div class="portfolio-overlay">
+							<h3>Application Mobile</h3>
+							<p>App de services géolocalisés</p>
+							<a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio-item" data-aos="zoom-in" data-aos-delay="300">
+					<div class="portfolio-image">
+						<div class="portfolio-placeholder">
+							<i class="fas fa-pen-nib"></i>
+						</div>
+						<div class="portfolio-overlay">
+							<h3>Design & Branding</h3>
+							<p>Identité visuelle complète</p>
+							<a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="contact-section">
+		<div class="container">
+			<h2 class="section-title" data-aos="fade-up">
+				<span class="title-decorator"></span>
+				Contactez-nous
+				<span class="title-decorator"></span>
+			</h2>
+			<div class="contact-content">
+				<div class="contact-info" data-aos="fade-right">
+					<h3>Transformons vos idées ensemble</h3>
+					<p>Prêt à commencer votre transformation digitale ? Contactez-nous pour discuter de votre projet.</p>
+					<div class="contact-details">
+						<div class="contact-item">
+							<i class="fas fa-envelope"></i>
+							<span>gnimdaoqc@gmail.com</span>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-phone"></i>
+							<span>+1 438 282 9977</span>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-map-marker-alt"></i>
+							<span>Montreal, Canada</span>
+						</div>
+					</div>
+					<div class="social-links">
+						<a href="https://www.instagram.com/gdg_productions_x_dg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+						<a href="https://github.com/GnimGregoireDAO/GnimGregoireDAO" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+					</div>
+				</div>
+				<form class="contact-form" data-aos="fade-left">
+					<div class="form-group">
+						<input type="text" placeholder="Votre nom" required>
+					</div>
+					<div class="form-group">
+						<input type="email" placeholder="Votre email" required>
+					</div>
+					<div class="form-group">
+						<input type="text" placeholder="Sujet">
+					</div>
+					<div class="form-group">
+						<textarea rows="5" placeholder="Votre message" required></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">
+						<span>Envoyer</span>
+						<i class="fas fa-paper-plane"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-logo">
+					<span class="logo-text">GDG</span>
+					<span class="logo-subtitle">PRODUCTIONS</span>
+					<p>Du charbon au diamant stellaire</p>
+				</div>
+				<div class="footer-links">
+					<h4>Navigation</h4>
+					<ul>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#approach">Approche</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+				<div class="footer-newsletter">
+					<h4>Newsletter</h4>
+					<p>Restez informé de nos dernières créations</p>
+					<form class="newsletter-form">
+						<input type="email" placeholder="Votre email">
+						<button type="submit"><i class="fas fa-arrow-right"></i></button>
+					</form>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2025 GDG Productions. Tous droits réservés.</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<!-- Menu mobile script - chargé en premier -->
+	<script is:inline>
+	(function() {
+		console.log('Menu script loading...');
+		
+		function initMenu() {
+			const menuToggle = document.querySelector('.menu-toggle');
+			const navLinks = document.querySelector('.nav-links');
+			
+			if (!menuToggle || !navLinks) {
+				console.log('Menu elements not ready, retrying...');
+				setTimeout(initMenu, 100);
+				return;
+			}
+			
+			console.log('Index page - Menu elements found:', {menuToggle, navLinks});
+			
+			menuToggle.addEventListener('click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				console.log('Menu button clicked!');
+				navLinks.classList.toggle('active');
+				menuToggle.classList.toggle('active');
+				console.log('Menu active:', navLinks.classList.contains('active'));
+			});
+			
+			// Close menu when clicking on a link
+			document.querySelectorAll('.nav-links a').forEach(function(link) {
+				link.addEventListener('click', function() {
+					navLinks.classList.remove('active');
+					menuToggle.classList.remove('active');
+				});
+			});
+			
+			// Close menu when clicking outside
+			document.addEventListener('click', function(e) {
+				if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+					navLinks.classList.remove('active');
+					menuToggle.classList.remove('active');
+				}
+			});
+			
+			console.log('Menu initialized successfully');
+		}
+		
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initMenu);
+		} else {
+			initMenu();
+		}
+	})();
+	</script>
+	
+	<!-- GSAP and animations -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+	<script is:inline>
+	// Wait for DOM to be fully loaded
+	document.addEventListener('DOMContentLoaded', function() {
+		
+		// Register GSAP plugins
+		gsap.registerPlugin(ScrollTrigger);
+		
+		// ============ Navigation Scroll Effect ============
+		const nav = document.querySelector('.main-nav');
+		let lastScroll = 0;
+		window.addEventListener('scroll', () => {
+			const currentScroll = window.pageYOffset;
+			
+			if (currentScroll > 100) {
+				nav.style.padding = '0.5rem 0';
+				nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+			} else {
+				nav.style.padding = '1rem 0';
+				nav.style.boxShadow = 'none';
+			}
+			
+			lastScroll = currentScroll;
+		});
+		
+		// ============ Smooth Scroll ============
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			});
+		});
+		
+		// ============ Hero Animation ============
+		const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+		
+		heroTimeline
+			.from('.logo-container', {
+				scale: 0,
+				rotation: 180,
+				duration: 1.2,
+				ease: 'back.out(1.7)'
+			})
+			.from('.hero-title', {
+				y: 50,
+				opacity: 0,
+				duration: 0.8,
+				stagger: 0.2
+			}, '-=0.4')
+			.from('.hero-text', {
+				y: 30,
+				opacity: 0,
+				duration: 0.6
+			}, '-=0.4')
+			.from('.hero-cta .btn', {
+				scale: 0,
+				opacity: 0,
+				duration: 0.5,
+				stagger: 0.2
+			}, '-=0.2');
+		
+		// ============ Floating Shapes Animation ============
+		const shapes = document.querySelectorAll('.geometric-shape');
+		shapes.forEach((shape, i) => {
+			gsap.to(shape, {
+				y: 'random(-100, 100)',
+				x: 'random(-100, 100)',
+				rotation: 'random(0, 360)',
+				duration: 'random(15, 25)',
+				repeat: -1,
+				yoyo: true,
+				ease: 'sine.inOut',
+				delay: i * 0.5
+			});
+		});
+		
+		// ============ Section Animations ============
+		const sectionTitles = document.querySelectorAll('.section-title');
+		sectionTitles.forEach(title => {
+			gsap.from(title, {
+				scrollTrigger: {
+					trigger: title,
+					start: 'top 80%',
+					toggleActions: 'play none none reverse'
+				},
+				y: 50,
+				opacity: 0,
+				duration: 0.8
+			});
+			
+			gsap.from(title.querySelectorAll('.title-decorator'), {
+				scrollTrigger: {
+					trigger: title,
+					start: 'top 80%',
+					toggleActions: 'play none none reverse'
+				},
+				scaleX: 0,
+				duration: 0.6,
+				stagger: 0.2,
+				delay: 0.3
+			});
+		});
+		
+		// ============ Story Cards Animation ============
+		const storyCards = document.querySelectorAll('.story-card');
+		storyCards.forEach((card, i) => {
+			gsap.from(card, {
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse'
+				},
+				y: 80,
+				opacity: 0,
+				rotation: -5,
+				duration: 0.8,
+				delay: i * 0.15
+			});
+		});
+		
+		// ============ Service Cards Animation ============
+		const serviceCards = document.querySelectorAll('.service-card');
+		serviceCards.forEach((card, i) => {
+			gsap.from(card, {
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse'
+				},
+				scale: 0.8,
+				opacity: 0,
+				duration: 0.7,
+				delay: i * 0.1
+			});
+			
+			// Hover effect
+			card.addEventListener('mouseenter', () => {
+				gsap.to(card, { scale: 1.05, duration: 0.3 });
+			});
+			
+			card.addEventListener('mouseleave', () => {
+				gsap.to(card, { scale: 1, duration: 0.3 });
+			});
+		});
+		
+		// ============ Timeline Animation ============
+		const timelineItems = document.querySelectorAll('.timeline-item');
+		timelineItems.forEach((item, i) => {
+			const isEven = i % 2 === 0;
+			gsap.from(item, {
+				scrollTrigger: {
+					trigger: item,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse'
+				},
+				x: isEven ? -100 : 100,
+				opacity: 0,
+				duration: 0.8
+			});
+		});
+		
+		// ============ Portfolio Items Animation ============
+		const portfolioItems = document.querySelectorAll('.portfolio-item');
+		portfolioItems.forEach((item, i) => {
+			gsap.from(item, {
+				scrollTrigger: {
+					trigger: item,
+					start: 'top 85%',
+					toggleActions: 'play none none reverse'
+				},
+				y: 60,
+				opacity: 0,
+				duration: 0.7,
+				delay: i * 0.1
+			});
+		});
+		
+		// ============ Button Ripple Effect ============
+		document.querySelectorAll('.btn').forEach(button => {
+			button.addEventListener('click', function(e) {
+				const ripple = document.createElement('span');
+				const rect = this.getBoundingClientRect();
+				const size = Math.max(rect.width, rect.height);
+				const x = e.clientX - rect.left - size / 2;
+				const y = e.clientY - rect.top - size / 2;
+				
+				ripple.style.width = ripple.style.height = size + 'px';
+				ripple.style.left = x + 'px';
+				ripple.style.top = y + 'px';
+				ripple.classList.add('ripple');
+				
+				this.appendChild(ripple);
+				
+				setTimeout(() => ripple.remove(), 600);
+			});
+		});
+		
+		// ============ Form Handling ============
+		const contactForm = document.querySelector('.contact-form');
+		if (contactForm) {
+			contactForm.addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				// Add success animation
+				gsap.to(contactForm, {
+					scale: 0.95,
+					duration: 0.1,
+					yoyo: true,
+					repeat: 1,
+					onComplete: () => {
+						alert('Message envoyé avec succès ! Nous vous répondrons bientôt.');
+						contactForm.reset();
+					}
+				});
+			});
+		}
+		
+		// ============ Parallax Effect ============
+		window.addEventListener('scroll', () => {
+			const scrolled = window.pageYOffset;
+			const parallaxElements = document.querySelectorAll('.logo-container, .geometric-shape');
+			
+			parallaxElements.forEach(el => {
+				const speed = el.dataset.speed || 0.5;
+				el.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
+			});
+		});
+		
+		// ============ Cursor Trail Effect (Desktop only) ============
+		if (window.innerWidth > 768) {
+			const coords = { x: 0, y: 0 };
+			const circles = document.querySelectorAll('.cursor-trail');
+			
+			if (circles.length === 0) {
+				// Create cursor trail elements
+				for (let i = 0; i < 20; i++) {
+					const circle = document.createElement('div');
+					circle.className = 'cursor-trail';
+					circle.style.cssText = `
+						position: fixed;
+						width: 10px;
+						height: 10px;
+						border-radius: 50%;
+						background: radial-gradient(circle, rgba(212, 175, 55, 0.6), rgba(255, 107, 53, 0.3));
+						pointer-events: none;
+						z-index: 9999;
+						opacity: 0;
+						transition: opacity 0.3s;
+					`;
+					document.body.appendChild(circle);
+				}
+			}
+			
+			const circles2 = document.querySelectorAll('.cursor-trail');
+			circles2.forEach((circle, index) => {
+				circle.x = 0;
+				circle.y = 0;
+			});
+			
+			window.addEventListener('mousemove', (e) => {
+				coords.x = e.clientX;
+				coords.y = e.clientY;
+			});
+			
+			function animateCircles() {
+				let x = coords.x;
+				let y = coords.y;
+				
+				circles2.forEach((circle, index) => {
+					circle.style.opacity = 1;
+					circle.style.left = x - 5 + 'px';
+					circle.style.top = y - 5 + 'px';
+					circle.style.transform = `scale(${(circles2.length - index) / circles2.length})`;
+					
+					circle.x = x;
+					circle.y = y;
+					
+					const nextCircle = circles2[index + 1] || circles2[0];
+					x += (nextCircle.x - x) * 0.3;
+					y += (nextCircle.y - y) * 0.3;
+				});
+				
+				requestAnimationFrame(animateCircles);
+			}
+			
+			animateCircles();
+		}
+		
+		console.log('All animations and interactions initialized');
+	});
+	</script>
+</body>
+</html>

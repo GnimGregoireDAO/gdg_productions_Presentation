@@ -1,0 +1,871 @@
+---
+import "../styles.css";
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Primary Meta Tags -->
+	<title>À Propos - Notre Histoire | GDG Productions</title>
+	<meta name="title" content="À Propos - Notre Histoire | GDG Productions">
+	<meta name="description" content="Découvrez l'histoire de GDG Productions, notre passion pour l'innovation numérique et notre engagement envers l'excellence. De l'origine du diamant à la constellation d'Orion.">
+	<meta name="keywords" content="GDG Productions histoire, agence web Montréal, à propos, mission, valeurs, innovation, excellence, passion">
+	<meta name="author" content="GDG Productions">
+	<meta name="robots" content="index, follow, max-image-preview:large">
+	<link rel="canonical" href="https://gdgproductions.ca/about">
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://gdgproductions.ca/about">
+	<meta property="og:title" content="À Propos - Notre Histoire | GDG Productions">
+	<meta property="og:description" content="Découvrez l'histoire de GDG Productions, notre passion pour l'innovation numérique et notre engagement envers l'excellence.">
+	<meta property="og:image" content="https://gdgproductions.ca/BackgroundStoryTelling.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:locale" content="fr_CA">
+	<meta property="og:site_name" content="GDG Productions">
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://gdgproductions.ca/about">
+	<meta property="twitter:title" content="À Propos - Notre Histoire | GDG Productions">
+	<meta property="twitter:description" content="Découvrez l'histoire de GDG Productions, notre passion pour l'innovation numérique.">
+	<meta property="twitter:image" content="https://gdgproductions.ca/BackgroundStoryTelling.png">
+	
+	<!-- Breadcrumb Schema for AI -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [
+	    {
+	      "@type": "ListItem",
+	      "position": 1,
+	      "name": "Accueil",
+	      "item": "https://gdgproductions.ca/"
+	    },
+	    {
+	      "@type": "ListItem",
+	      "position": 2,
+	      "name": "À Propos",
+	      "item": "https://gdgproductions.ca/about"
+	    }
+	  ]
+	}
+	</script>
+	
+	<!-- AboutPage Schema for AI -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "AboutPage",
+	  "name": "À Propos de GDG Productions",
+	  "description": "L'histoire de GDG Productions, notre philosophie et notre processus de transformation digitale.",
+	  "url": "https://gdgproductions.ca/about",
+	  "mainEntity": {
+	    "@type": "Organization",
+	    "name": "GDG Productions",
+	    "url": "https://gdgproductions.ca",
+	    "logo": "https://gdgproductions.ca/logogdgproductions.jpg",
+	    "description": "Comme les constellations qui guident les voyageurs, GDG Productions éclaire le chemin de la transformation digitale.",
+	    "foundingDate": "2024",
+	    "founder": {
+	      "@type": "Person",
+	      "name": "Grégoire Gnim DAO"
+	    },
+	    "slogan": "Par-delà les nuages, au-delà du ciel - Transformons vos idées en réalité numérique",
+	    "knowsAbout": [
+	      "Développement Web",
+	      "Applications Mobiles",
+	      "Design UI/UX",
+	      "Transformation Digitale",
+	      "Innovation Technologique"
+	    ]
+	  }
+	}
+	</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<style>
+		/* About Page Specific Styles */
+		.about-hero {
+			min-height: 100vh;
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(62, 39, 35, 0.8)), url('/BackgroundStoryTelling.png');
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+		}
+
+		.about-hero::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: 
+				radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+				radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
+			animation: breathe 8s ease-in-out infinite;
+		}
+
+		@keyframes breathe {
+			0%, 100% { opacity: 0.5; }
+			50% { opacity: 0.8; }
+		}
+
+		.about-hero-content {
+			position: relative;
+			z-index: 10;
+			text-align: center;
+			padding: 2rem;
+			max-width: 1000px;
+		}
+
+		.about-hero h1 {
+			font-family: var(--font-display);
+			font-size: clamp(3rem, 8vw, 6rem);
+			font-weight: 900;
+			background: linear-gradient(135deg, var(--color-gold), var(--color-orange-bright), var(--color-red-bright));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			margin-bottom: 2rem;
+			line-height: 1.2;
+		}
+
+		.about-hero p {
+			font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+			color: var(--color-cream);
+			line-height: 1.8;
+			opacity: 0.95;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.story-section {
+			position: relative;
+			padding: 8rem 2rem;
+			background: var(--gradient-bg);
+		}
+
+		.story-section:nth-child(even) {
+			background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(62, 39, 35, 0.9) 100%);
+		}
+
+		.story-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 4rem;
+			align-items: center;
+		}
+
+		.story-text h2 {
+			font-family: var(--font-display);
+			font-size: clamp(2.5rem, 5vw, 4rem);
+			background: var(--gradient-african);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			margin-bottom: 2rem;
+			line-height: 1.2;
+		}
+
+		.story-text p {
+			font-size: 1.2rem;
+			line-height: 2;
+			color: var(--color-cream);
+			opacity: 0.9;
+			margin-bottom: 1.5rem;
+		}
+
+		.story-visual {
+			position: relative;
+			min-height: 400px;
+			border-radius: 30px;
+			overflow: hidden;
+			border: 3px solid var(--color-gold);
+			box-shadow: var(--shadow-warm);
+		}
+
+		.story-visual::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: 
+				repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(212, 175, 55, 0.1) 20px, rgba(212, 175, 55, 0.1) 40px),
+				linear-gradient(135deg, var(--color-red) 0%, var(--color-orange) 50%, var(--color-gold) 100%);
+			opacity: 0.3;
+		}
+
+		.constellation-pattern {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			filter: brightness(0.8) contrast(1.2);
+		}
+
+		.pattern-diamant {
+			background-image: url("/L%27origineDuDiamant.png");
+		}
+
+		.pattern-orion {
+			background-image: url("/LaConstellationOrion.png");
+		}
+
+		.values-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2.5rem;
+			padding: 4rem 2rem;
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+
+		.value-card {
+			background: rgba(62, 39, 35, 0.8);
+			border: 2px solid rgba(212, 175, 55, 0.4);
+			border-radius: 25px;
+			padding: 3rem;
+			text-align: center;
+			transition: all 0.4s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.value-card::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			left: -50%;
+			width: 200%;
+			height: 200%;
+			background: conic-gradient(from 0deg, transparent, rgba(212, 175, 55, 0.2), transparent 30%);
+			animation: rotate 4s linear infinite;
+			opacity: 0;
+			transition: opacity 0.4s;
+		}
+
+		.value-card:hover::before {
+			opacity: 1;
+		}
+
+		.value-card:hover {
+			transform: translateY(-10px);
+			border-color: var(--color-orange-bright);
+			box-shadow: var(--shadow-warm);
+		}
+
+		.value-icon {
+			width: 100px;
+			height: 100px;
+			margin: 0 auto 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--gradient-african);
+			border-radius: 50%;
+			font-size: 3rem;
+			color: var(--color-cream);
+			position: relative;
+			z-index: 1;
+		}
+
+		.value-card h3 {
+			font-family: var(--font-display);
+			font-size: 1.8rem;
+			color: var(--color-gold-light);
+			margin-bottom: 1rem;
+		}
+
+		.value-card p {
+			color: var(--color-cream);
+			line-height: 1.8;
+			opacity: 0.9;
+		}
+
+		.journey-timeline {
+			max-width: 1000px;
+			margin: 6rem auto;
+			padding: 0 2rem;
+			position: relative;
+		}
+
+		.journey-timeline::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 0;
+			bottom: 0;
+			width: 3px;
+			background: linear-gradient(to bottom, var(--color-red), var(--color-orange), var(--color-gold));
+			transform: translateX(-50%);
+		}
+
+		.journey-item {
+			display: flex;
+			gap: 3rem;
+			margin-bottom: 5rem;
+			position: relative;
+		}
+
+		.journey-item:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+
+		.journey-year {
+			min-width: 150px;
+			height: 150px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: var(--font-display);
+			font-size: 2.5rem;
+			font-weight: 900;
+			background: var(--gradient-african);
+			color: var(--color-cream);
+			border-radius: 50%;
+			box-shadow: var(--shadow-warm);
+			position: relative;
+			z-index: 10;
+			border: 4px solid var(--color-gold);
+		}
+
+		.journey-content {
+			flex: 1;
+			background: rgba(62, 39, 35, 0.8);
+			border: 2px solid rgba(212, 175, 55, 0.4);
+			border-radius: 25px;
+			padding: 3rem;
+		}
+
+		.journey-content h3 {
+			font-family: var(--font-display);
+			font-size: 2rem;
+			color: var(--color-gold-light);
+			margin-bottom: 1rem;
+		}
+
+		.journey-content p {
+			color: var(--color-cream);
+			line-height: 1.9;
+			opacity: 0.9;
+			font-size: 1.1rem;
+		}
+
+		.cta-section {
+			padding: 8rem 2rem;
+			text-align: center;
+			background: linear-gradient(135deg, rgba(139, 26, 26, 0.5), rgba(62, 39, 35, 0.9));
+			position: relative;
+			overflow: hidden;
+		}
+
+		.cta-section::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: url('/BackgroundStoryTelling.png');
+			background-size: cover;
+			background-position: center;
+			opacity: 0.2;
+			filter: blur(3px);
+		}
+
+		.cta-content {
+			position: relative;
+			z-index: 10;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.cta-content h2 {
+			font-family: var(--font-display);
+			font-size: clamp(2.5rem, 5vw, 4rem);
+			background: var(--gradient-african);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			margin-bottom: 2rem;
+		}
+
+		.cta-content p {
+			font-size: 1.3rem;
+			color: var(--color-cream);
+			margin-bottom: 3rem;
+			line-height: 1.8;
+		}
+
+		@media (max-width: 768px) {
+			.story-container {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+
+			.story-visual {
+				min-height: 300px;
+			}
+
+			.journey-timeline::before {
+				left: 30px;
+			}
+
+			.journey-item,
+			.journey-item:nth-child(even) {
+				flex-direction: column;
+				padding-left: 100px;
+				gap: 1.5rem;
+			}
+
+			.journey-year {
+				position: absolute;
+				left: 0;
+				min-width: 100px;
+				height: 100px;
+				font-size: 1.8rem;
+			}
+
+			.journey-content {
+				padding: 2rem;
+			}
+
+			.values-grid {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+				padding: 2rem 1rem;
+			}
+
+			.value-card {
+				padding: 2rem;
+			}
+
+			.value-icon {
+				width: 80px;
+				height: 80px;
+				font-size: 2.5rem;
+			}
+
+			.about-hero {
+				background-attachment: scroll;
+			}
+
+			.about-hero-content {
+				padding: 1rem;
+			}
+
+			.story-section {
+				padding: 4rem 1rem;
+			}
+
+			.cta-section {
+				padding: 4rem 1rem;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.about-hero h1 {
+				font-size: 2.5rem;
+			}
+
+			.about-hero p {
+				font-size: 1.1rem;
+			}
+
+			.story-text h2 {
+				font-size: 2rem;
+			}
+
+			.story-text p {
+				font-size: 1rem;
+			}
+
+			.story-visual {
+				min-height: 250px;
+			}
+
+			.journey-year {
+				min-width: 80px;
+				height: 80px;
+				font-size: 1.5rem;
+			}
+
+			.journey-item,
+			.journey-item:nth-child(even) {
+				padding-left: 80px;
+			}
+
+			.journey-timeline::before {
+				left: 40px;
+			}
+
+			.journey-content h3 {
+				font-size: 1.5rem;
+			}
+
+			.journey-content p {
+				font-size: 1rem;
+			}
+
+			.value-card h3 {
+				font-size: 1.5rem;
+			}
+
+			.cta-content h2 {
+				font-size: 2rem;
+			}
+
+			.cta-content p {
+				font-size: 1.1rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="main-nav">
+		<div class="nav-container">
+			<a href="/" class="nav-logo">
+				<span class="logo-text">GDG</span>
+				<span class="logo-subtitle">PRODUCTIONS</span>
+			</a>
+			<button class="menu-toggle" aria-label="Toggle menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="nav-links">
+				<li><a href="/">Accueil</a></li>
+				<li><a href="/#services">Services</a></li>
+				<li><a href="/#portfolio">Portfolio</a></li>
+				<li><a href="/#contact">Contact</a></li>
+				<li class="nav-about"><a href="/about" class="btn-about">À Propos</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="about-hero">
+		<div class="about-hero-content">
+			<h1 data-aos="fade-up">Notre Histoire</h1>
+			<p data-aos="fade-up" data-aos-delay="200">
+				Par-delà les nuages, au-delà du ciel, nous avons toujours été fascinés par les étoiles. 
+				Ces joyaux inaccessibles qui éclairent la nuit et guident les voyageurs. 
+				GDG Productions est né de cette fascination : transformer l'inaccessible en réalité, 
+				fusionner l'innovation technologique avec la beauté des constellations numériques.
+			</p>
+		</div>
+	</section>
+
+	<!-- Origin Story -->
+	<section class="story-section">
+		<div class="story-container">
+			<div class="story-text" data-aos="fade-right">
+				<h2>L'Origine du Diamant</h2>
+				<p>
+					Dans les profondeurs de la terre, sous des millions d'années de pression et de temps, 
+					le charbon se métamorphose en diamant. C'est cette même alchimie transformatrice 
+					que nous appliquons à vos idées.
+				</p>
+				<p>
+					GDG Productions est né d'une vision : créer des solutions numériques qui brillent 
+					de mille feux, où la technologie de pointe rencontre l'excellence du design et 
+					l'attention aux détails.
+				</p>
+				<p>
+					Chaque projet est une constellation unique, un arrangement précis d'éléments qui 
+					raconte votre histoire et guide vos utilisateurs vers leur destination avec élégance 
+					et efficacité.
+				</p>
+			</div>
+			<div class="story-visual" data-aos="fade-left">
+				<img src="/L%27origineDuDiamant.png" alt="L'Origine du Diamant" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+			</div>
+		</div>
+	</section>
+
+	<!-- Vision Section -->
+	<section class="story-section">
+		<div class="story-container">
+			<div class="story-visual" data-aos="fade-right">
+				<img src="/LaConstellationOrion.png" alt="La Constellation d'Orion" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 30px;">
+			</div>
+			<div class="story-text" data-aos="fade-left">
+				<h2>La Constellation d'Orion</h2>
+				<p>
+					Orion, le chasseur céleste, incarne notre quête de précision et de clarté. 
+					Depuis des millénaires, sa silhouette guide les navigateurs à travers l'immensité. 
+					Aujourd'hui, elle inspire notre mission : orienter nos clients dans l'univers 
+					complexe du numérique.
+				</p>
+				<p>
+					Notre approche marie l'héritage des formes intemporelles — géométrie, rythme, 
+					symétrie — avec les langages du futur : interfaces intuitives, algorithmes 
+					sensibles, expériences immersives.
+				</p>
+				<p>
+					Nous créons des solutions qui transcendent la simple fonctionnalité. Chaque projet 
+					est pensé comme une constellation unique, où chaque élément trouve sa place dans un 
+					équilibre parfait entre esthétique et performance, entre innovation et accessibilité.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Values -->
+	<section class="story-section">
+		<div style="text-align: center; margin-bottom: 4rem;">
+			<h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); background: var(--gradient-african); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">
+				Nos Valeurs
+			</h2>
+			<p style="font-size: 1.2rem; color: var(--color-cream); max-width: 700px; margin: 0 auto; opacity: 0.9;">
+				Les piliers qui soutiennent notre constellation
+			</p>
+		</div>
+		<div class="values-grid">
+			<div class="value-card" data-aos="zoom-in">
+				<div class="value-icon">
+					<i class="fas fa-fire"></i>
+				</div>
+				<h3>Passion</h3>
+				<p>Nous mettons notre cœur dans chaque ligne de code, chaque pixel de design, car nous croyons que la technologie doit être animée par l'émotion humaine.</p>
+			</div>
+			<div class="value-card" data-aos="zoom-in" data-aos-delay="100">
+				<div class="value-icon">
+					<i class="fas fa-lightbulb"></i>
+				</div>
+				<h3>Innovation</h3>
+				<p>Nous repoussons constamment les limites, explorant de nouveaux territoires numériques et créant des solutions qui redéfinissent les standards de l'industrie.</p>
+			</div>
+			<div class="value-card" data-aos="zoom-in" data-aos-delay="200">
+				<div class="value-icon">
+					<i class="fas fa-crown"></i>
+				</div>
+				<h3>Excellence</h3>
+				<p>Chaque projet est taillé avec la précision d'un diamantaire, poli jusqu'à ce qu'il brille de mille feux dans l'écosystème digital.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Notre Processus -->
+	<section class="story-section">
+		<div style="text-align: center; margin-bottom: 4rem;">
+			<h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); background: var(--gradient-african); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">
+				Notre Processus
+			</h2>
+			<p style="font-size: 1.2rem; color: var(--color-cream); max-width: 700px; margin: 0 auto; opacity: 0.9;">
+				De l'idée à la réalisation, chaque étape compte
+			</p>
+		</div>
+		<div class="journey-timeline">
+			<div class="journey-item" data-aos="fade-up">
+				<div class="journey-year">01</div>
+				<div class="journey-content">
+					<h3>Découverte & Analyse</h3>
+					<p>Nous plongeons dans votre univers pour comprendre vos besoins, vos objectifs et votre vision. Cette phase cruciale pose les fondations d'une collaboration réussie et d'un projet aligné sur vos attentes.</p>
+				</div>
+			</div>
+			<div class="journey-item" data-aos="fade-up" data-aos-delay="100">
+				<div class="journey-year">02</div>
+				<div class="journey-content">
+					<h3>Conception & Design</h3>
+					<p>Nos designers créent des maquettes qui allient esthétique et fonctionnalité. Chaque élément visuel est pensé pour offrir une expérience utilisateur optimale et refléter l'essence de votre marque.</p>
+				</div>
+			</div>
+			<div class="journey-item" data-aos="fade-up" data-aos-delay="200">
+				<div class="journey-year">03</div>
+				<div class="journey-content">
+					<h3>Développement & Tests</h3>
+					<p>Notre équipe technique transforme les designs en solutions performantes. Chaque ligne de code est testée rigoureusement pour garantir qualité, sécurité et fluidité d'utilisation.</p>
+				</div>
+			</div>
+			<div class="journey-item" data-aos="fade-up" data-aos-delay="300">
+				<div class="journey-year">04</div>
+				<div class="journey-content">
+					<h3>Lancement & Suivi</h3>
+					<p>Nous vous accompagnons dans le déploiement et restons à vos côtés après le lancement. Votre succès est notre priorité, et nous assurons que votre projet continue de briller et d'évoluer.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="cta-section">
+		<div class="cta-content">
+			<h2 data-aos="fade-up">Rejoignez Notre Constellation</h2>
+			<p data-aos="fade-up" data-aos-delay="100">
+				Votre projet est la prochaine étoile qui brillera dans notre univers digital. 
+				Ensemble, transformons vos idées en diamants numériques qui illumineront le monde.
+			</p>
+			<div data-aos="fade-up" data-aos-delay="200">
+				<a href="/#contact" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; font-family: var(--font-body); font-size: 1rem; font-weight: 600; text-decoration: none; border: 2px solid transparent; border-radius: 50px; cursor: pointer; transition: var(--transition-normal); position: relative; overflow: hidden; background: var(--gradient-african); color: var(--color-cream); box-shadow: var(--shadow-warm);">
+					<span>Commencer Votre Transformation</span>
+					<i class="fas fa-rocket"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-logo">
+					<span class="logo-text">GDG</span>
+					<span class="logo-subtitle">PRODUCTIONS</span>
+					<p>Du charbon au diamant stellaire</p>
+				</div>
+				<div class="footer-links">
+					<h4>Navigation</h4>
+					<ul>
+						<li><a href="/">Accueil</a></li>
+						<li><a href="/#services">Services</a></li>
+						<li><a href="/#portfolio">Portfolio</a></li>
+						<li><a href="/about">À Propos</a></li>
+						<li><a href="/#contact">Contact</a></li>
+					</ul>
+				</div>
+				<div class="footer-newsletter">
+					<h4>Newsletter</h4>
+					<p>Restez informé de nos dernières créations</p>
+					<form class="newsletter-form">
+						<input type="email" placeholder="Votre email">
+						<button type="submit"><i class="fas fa-arrow-right"></i></button>
+					</form>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2025 GDG Productions. Tous droits réservés.</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+	<script is:inline>
+		// Mobile menu
+		document.addEventListener('DOMContentLoaded', function() {
+			const menuToggle = document.querySelector('.menu-toggle');
+			const navLinks = document.querySelector('.nav-links');
+			
+			if (menuToggle && navLinks) {
+				console.log('About page - Menu elements found');
+				menuToggle.addEventListener('click', (e) => {
+					e.preventDefault();
+					e.stopPropagation();
+					navLinks.classList.toggle('active');
+					menuToggle.classList.toggle('active');
+					console.log('About page - Menu toggled, active:', navLinks.classList.contains('active'));
+				});
+				
+				document.querySelectorAll('.nav-links a').forEach(link => {
+					link.addEventListener('click', () => {
+						navLinks.classList.remove('active');
+						menuToggle.classList.remove('active');
+					});
+				});
+				
+				// Close menu when clicking outside
+				document.addEventListener('click', (e) => {
+					if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+						navLinks.classList.remove('active');
+						menuToggle.classList.remove('active');
+					}
+				});
+			} else {
+				console.error('About page - Menu elements not found:', {menuToggle, navLinks});
+			}
+
+			// Smooth scroll
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					const target = document.querySelector(this.getAttribute('href'));
+					if (target) {
+						window.scrollTo({
+							top: target.offsetTop - 80,
+							behavior: 'smooth'
+						});
+					}
+				});
+			});
+
+			// GSAP Animations
+			gsap.registerPlugin(ScrollTrigger);
+
+			// Hero parallax
+			gsap.to('.about-hero', {
+				scrollTrigger: {
+					trigger: '.about-hero',
+					start: 'top top',
+					end: 'bottom top',
+					scrub: 1
+				},
+				opacity: 0.3,
+				scale: 1.2
+			});
+
+			// Story sections animation
+			gsap.utils.toArray('.story-container').forEach(container => {
+				gsap.from(container.children, {
+					scrollTrigger: {
+						trigger: container,
+						start: 'top 80%',
+						toggleActions: 'play none none reverse'
+					},
+					y: 100,
+					opacity: 0,
+					duration: 1,
+					stagger: 0.3,
+					ease: 'power3.out'
+				});
+			});
+
+			// Values cards
+			gsap.utils.toArray('.value-card').forEach((card, index) => {
+				gsap.from(card, {
+					scrollTrigger: {
+						trigger: card,
+						start: 'top 85%',
+						toggleActions: 'play none none reverse'
+					},
+					scale: 0.8,
+					opacity: 0,
+					rotation: 10,
+					duration: 0.8,
+					delay: index * 0.1,
+					ease: 'back.out(1.7)'
+				});
+			});
+
+			// Journey timeline
+			gsap.utils.toArray('.journey-item').forEach((item, index) => {
+				const isEven = index % 2 === 0;
+				gsap.from(item, {
+					scrollTrigger: {
+						trigger: item,
+						start: 'top 80%',
+						toggleActions: 'play none none reverse'
+					},
+					x: isEven ? -100 : 100,
+					opacity: 0,
+					duration: 1,
+					ease: 'power3.out'
+				});
+			});
+			
+			console.log('About page - All animations initialized');
+		});
+	</script>
+</body>
+</html>
