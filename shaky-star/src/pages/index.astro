@@ -420,23 +420,23 @@ import "../styles.css";
 						<a href="https://github.com/GnimGregoireDAO/GnimGregoireDAO" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
 					</div>
 				</div>
-				<form class="contact-form" data-aos="fade-left">
+				<form id="contactForm" class="contact-form" data-aos="fade-left">
 					<div class="form-group">
-						<input type="text" placeholder="Votre nom" required>
+						<input type="text" id="name" name="name" placeholder="Votre nom" required minlength="2" maxlength="100">
 					</div>
 					<div class="form-group">
-						<input type="email" placeholder="Votre email" required>
+						<input type="email" id="email" name="email" placeholder="Votre email" required>
 					</div>
+					<!-- Honeypot anti-spam (caché) -->
+					<input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 					<div class="form-group">
-						<input type="text" placeholder="Sujet">
+						<textarea id="message" name="message" rows="5" placeholder="Votre message" required minlength="10" maxlength="5000"></textarea>
 					</div>
-					<div class="form-group">
-						<textarea rows="5" placeholder="Votre message" required></textarea>
-					</div>
-					<button type="submit" class="btn btn-primary">
-						<span>Envoyer</span>
+					<button type="submit" id="submitBtn" class="btn btn-primary">
+						<span id="btnText">Envoyer</span>
 						<i class="fas fa-paper-plane"></i>
 					</button>
+					<p id="formStatus" style="margin-top: 1rem; font-weight: 500;"></p>
 				</form>
 			</div>
 		</div>
@@ -735,24 +735,7 @@ import "../styles.css";
 		});
 		
 		// ============ Form Handling ============
-		const contactForm = document.querySelector('.contact-form');
-		if (contactForm) {
-			contactForm.addEventListener('submit', function(e) {
-				e.preventDefault();
-				
-				// Add success animation
-				gsap.to(contactForm, {
-					scale: 0.95,
-					duration: 0.1,
-					yoyo: true,
-					repeat: 1,
-					onComplete: () => {
-						alert('Message envoyé avec succès ! Nous vous répondrons bientôt.');
-						contactForm.reset();
-					}
-				});
-			});
-		}
+		
 		
 		// ============ Parallax Effect ============
 		window.addEventListener('scroll', () => {
@@ -823,6 +806,68 @@ import "../styles.css";
 			}
 			
 			animateCircles();
+		}
+		
+		// ============ Formulaire de Contact ============
+		const contactForm = document.getElementById('contactForm');
+		if (contactForm) {
+			// URL de ton API Vercel
+			const API_URL = 'https://contact-api-daogregoire09-3737s-projects.vercel.app/api/contact';
+			
+			contactForm.addEventListener('submit', async function(e) {
+				e.preventDefault();
+				
+				const form = e.target;
+				const status = document.getElementById('formStatus');
+				const button = document.getElementById('submitBtn');
+				const btnText = document.getElementById('btnText');
+				
+				// Anti-spam honeypot
+				if (form.website && form.website.value) {
+					status.textContent = '✅ Message envoyé avec succès !';
+					status.style.color = '#4CAF50';
+					return;
+				}
+				
+				// Désactiver le bouton
+				button.disabled = true;
+				const originalText = btnText.textContent;
+				btnText.textContent = 'Envoi en cours...';
+				status.textContent = '';
+				
+				// Préparer les données
+				const data = {
+					name: form.name.value.trim(),
+					email: form.email.value.trim(),
+					message: form.message.value.trim()
+				};
+				
+				try {
+					const response = await fetch(API_URL, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(data)
+					});
+					
+					const result = await response.json();
+					
+					if (response.ok && result.ok) {
+						status.textContent = '✅ Message envoyé avec succès !';
+						status.style.color = '#4CAF50';
+						form.reset();
+					} else {
+						status.textContent = '❌ ' + (result.error || 'Erreur, veuillez réessayer');
+						status.style.color = '#f44336';
+					}
+				} catch (error) {
+					status.textContent = '❌ Erreur réseau, veuillez réessayer';
+					status.style.color = '#f44336';
+					console.error('Erreur:', error);
+				} finally {
+					button.disabled = false;
+					btnText.textContent = originalText;
+				}
+			});
 		}
 		
 		console.log('All animations and interactions initialized');
