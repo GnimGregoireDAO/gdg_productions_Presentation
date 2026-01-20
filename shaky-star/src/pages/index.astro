@@ -7,7 +7,8 @@ import "../styles.css";
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://tinylytics.app/embed/BkNCVK1kcz4y6kZSkEJ4.js" defer></script>
+	<!-- LOI 25: Analytics commenté - nécessite consentement explicite -->
+	<!-- <script src="https://tinylytics.app/embed/BkNCVK1kcz4y6kZSkEJ4.js" defer></script> -->
 	<!-- Primary Meta Tags -->
 	<title>GDG Productions - Développement Web & Applications Mobiles à Montréal</title>
 	<meta name="title" content="GDG Productions - Développement Web & Applications Mobiles à Montréal">
@@ -142,9 +143,11 @@ import "../styles.css";
 	  }
 	}
 	</script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<!-- LOI 25: Google Fonts CDN commenté - partage de données avec Google (IP, user-agent) -->
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+	<!-- TODO: Héberger les polices localement ou obtenir consentement -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -420,14 +423,15 @@ import "../styles.css";
 						<a href="https://github.com/GnimGregoireDAO/GnimGregoireDAO" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
 					</div>
 				</div>
-				<form id="contactForm" class="contact-form" data-aos="fade-left">
+				<!-- LOI 25: Formulaire de contact commenté - collecte de données personnelles -->
+				<!-- Nécessite: politique de confidentialité, consentement, durée conservation, etc. -->
+				<!-- <form id="contactForm" class="contact-form" data-aos="fade-left">
 					<div class="form-group">
 						<input type="text" id="name" name="name" placeholder="Votre nom" required minlength="2" maxlength="100">
 					</div>
 					<div class="form-group">
 						<input type="email" id="email" name="email" placeholder="Votre email" required>
 					</div>
-					<!-- Honeypot anti-spam (caché) -->
 					<input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 					<div class="form-group">
 						<textarea id="message" name="message" rows="5" placeholder="Votre message" required minlength="10" maxlength="5000"></textarea>
@@ -437,7 +441,8 @@ import "../styles.css";
 						<i class="fas fa-paper-plane"></i>
 					</button>
 					<p id="formStatus" style="margin-top: 1rem; font-weight: 500;"></p>
-				</form>
+				</form> -->
+				<p style="padding: 2rem; text-align: center; color: var(--color-gold);">Formulaire temporairement désactivé pour mise en conformité Loi 25</p>
 			</div>
 		</div>
 	</section>
@@ -460,14 +465,15 @@ import "../styles.css";
 						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</div>
-				<div class="footer-newsletter">
+				<!-- LOI 25: Newsletter commentée - collecte d'emails sans consentement -->
+				<!-- <div class="footer-newsletter">
 					<h4>Newsletter</h4>
 					<p>Restez informé de nos dernières créations</p>
 					<form class="newsletter-form">
 						<input type="email" placeholder="Votre email">
 						<button type="submit"><i class="fas fa-arrow-right"></i></button>
 					</form>
-				</div>
+				</div> -->
 			</div>
 			<div class="footer-bottom">
 				<p>&copy; 2025 GDG Productions. Tous droits réservés.</p>
@@ -748,7 +754,8 @@ import "../styles.css";
 		});
 		
 		// ============ Cursor Trail Effect (Desktop only) ============
-		if (window.innerWidth > 768) {
+		// LOI 25: Cursor trail commenté - tracking des mouvements de souris
+		/* if (window.innerWidth > 768) {
 			const coords = { x: 0, y: 0 };
 			const circles = document.querySelectorAll('.cursor-trail');
 			
@@ -805,10 +812,11 @@ import "../styles.css";
 			}
 			
 			animateCircles();
-		}
+		} */
 		
 		// ============ Formulaire de Contact ============
-		const contactForm = document.getElementById('contactForm');
+		// LOI 25: Script du formulaire commenté
+		/* const contactForm = document.getElementById('contactForm');
 		if (contactForm) {
 			// URL de ton API Vercel
 			const API_URL = 'https://contact-api-beige.vercel.app/api/contact';
@@ -867,7 +875,7 @@ import "../styles.css";
 					btnText.textContent = originalText;
 				}
 			});
-		}
+		} */
 		
 		console.log('All animations and interactions initialized');
 	});
