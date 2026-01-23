@@ -23,7 +23,7 @@ module.exports = async function handler(req, res){
     res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
 
     // 6. Extraire les données du formulaire par destructuration d'objets
-    const {name, email, message} = req.body;
+    const {name, email, message, consent_marketing, consent_timestamp} = req.body;
 
     // 7. Validation des champs
     if (!name || !email || !message) {
@@ -57,11 +57,13 @@ module.exports = async function handler(req, res){
             to: process.env.TO_EMAIL,
             replyTo: email, // Permet de répondre directement au client
             subject: `[Contact Site] Message de ${name}`,
-            text: `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+            text: `Nom: ${name}\nEmail: ${email}\nConsentement marketing: ${consent_marketing ? 'OUI' : 'NON'}\nDate: ${consent_timestamp}\n\nMessage:\n${message}`,
             html: `
                 <h2>Nouveau message du formulaire</h2>
                 <p><strong>Nom:</strong> ${name}</p>
                 <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                <p><strong>Consentement marketing:</strong> ${consent_marketing ? '✅ OUI' : '❌ NON'}</p>
+                <p><strong>Date consentement:</strong> ${consent_timestamp || 'N/A'}</p>
                 <hr>
                 <p><strong>Message:</strong></p>
                 <p>${message.replace(/\n/g, '<br>')}</p>
