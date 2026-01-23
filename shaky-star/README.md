@@ -106,7 +106,7 @@ Consultez **[SEO_IMPROVEMENTS.md](SEO_IMPROVEMENTS.md)** pour :
 
 ## 📞 Contact
 
-**Email** : contact@gdgproductions.com  
+**Email** : gnimdaoqc@gmail.com  
 **Localisation** : Montréal, QC, Canada
 
 ---
