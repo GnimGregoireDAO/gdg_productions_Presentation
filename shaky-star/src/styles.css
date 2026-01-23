@@ -1264,6 +1264,121 @@ section {
     min-height: 150px;
 }
 
+/* ============ Consent Checkboxes (Loi 25) ============ */
+.consent-checkboxes {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.consent-checkbox {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.consent-checkbox:last-child {
+    margin-bottom: 0;
+}
+
+.consent-checkbox.optional {
+    opacity: 0.8;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.consent-checkbox .checkmark {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 22px;
+    width: 22px;
+    background-color: rgba(26, 26, 26, 0.5);
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.consent-checkbox:hover .checkmark {
+    border-color: var(--color-gold);
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.consent-checkbox input[type="checkbox"]:checked ~ .checkmark {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-orange-bright));
+    border-color: var(--color-gold);
+}
+
+.consent-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--color-dark);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.consent-checkbox input[type="checkbox"]:checked ~ .checkmark:after {
+    display: block;
+}
+
+.consent-text {
+    color: var(--color-cream);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.consent-text a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.consent-text a:hover {
+    color: var(--color-orange-bright);
+}
+
+.form-info {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 107, 53, 0.1);
+    border-left: 4px solid var(--color-orange-bright);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.form-info i {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.form-info p {
+    color: var(--color-cream);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
 /* ============ Footer ============ */
 .footer {
     background: rgba(26, 26, 26, 0.9);

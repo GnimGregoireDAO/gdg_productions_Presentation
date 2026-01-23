@@ -1,5 +1,6 @@
 ---
 import "../styles.css";
+import "../consent-styles.css";
 ---
 
 <!DOCTYPE html>
@@ -10,22 +11,16 @@ import "../styles.css";
 	<!-- LOI 25: Analytics commenté - nécessite consentement explicite -->
 	<!-- <script src="https://tinylytics.app/embed/BkNCVK1kcz4y6kZSkEJ4.js" defer></script> -->
 	<!-- Primary Meta Tags -->
-	<title>GDG Productions - Développement Web & Applications Mobiles à Montréal</title>
-	<meta name="title" content="GDG Productions - Développement Web & Applications Mobiles à Montréal">
-	<meta name="description" content="Par-delà les nuages, au-delà du ciel, GDG Productions transforme vos idées en réalité numérique. Développement web, applications mobiles et design à Montréal. Faites briller vos idées dans l'univers digital.">
-	<meta name="keywords" content="développement web Montréal, applications mobiles, design web, développeur fullstack, React, Node.js, GDG Productions, transformation digitale, solutions numériques Canada">
-	<meta name="author" content="GDG Productions">
+	<title>GDG Productions - Sites Web Professionnels & Vitrines à Montréal</title>
+	<meta name="description" content="Création de sites web professionnels, vitrines et landing pages modernes à Montréal. Par-delà les nuages, au-delà du ciel - Transformons vos idées en réalité numérique">
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-	<meta name="language" content="French">
-	<meta name="revisit-after" content="7 days">
-	<meta name="rating" content="general">
 	<link rel="canonical" href="https://gdgproductions.ca/">
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://gdgproductions.ca/">
-	<meta property="og:title" content="GDG Productions - Développement Web & Applications Mobiles">
-	<meta property="og:description" content="Par-delà les nuages, transformez vos idées en réalité numérique. Faites briller vos projets dans l'univers digital.">
+	<meta property="og:title" content="GDG Productions - Sites Web Professionnels à Montréal">
+	<meta property="og:description" content="Par-delà les nuages, au-delà du ciel - Transformons vos idées en réalité numérique">
 	<meta property="og:image" content="https://gdgproductions.ca/logogdgproductions.jpg">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
@@ -35,17 +30,11 @@ import "../styles.css";
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://gdgproductions.ca/">
-	<meta property="twitter:title" content="GDG Productions - Développement Web & Applications Mobiles">
-	<meta property="twitter:description" content="Par-delà les nuages, transformez vos idées en réalité numérique. Faites briller vos projets dans l'univers digital.">
+	<meta property="twitter:title" content="GDG Productions - Sites Web Professionnels">
+	<meta property="twitter:description" content="Par-delà les nuages, au-delà du ciel - Transformons vos idées en réalité numérique">
 	<meta property="twitter:image" content="https://gdgproductions.ca/logogdgproductions.jpg">
 	
-	<!-- Geo Tags -->
-	<meta name="geo.region" content="CA-QC">
-	<meta name="geo.placename" content="Montreal">
-	<meta name="geo.position" content="45.5017;-73.5673">
-	<meta name="ICBM" content="45.5017, -73.5673">
-	
-	<!-- AI Optimization / Schema.org JSON-LD -->
+	<!-- Schema.org JSON-LD for SEO -->
 	<script type="application/ld+json">
 	{
 	  "@context": "https://schema.org",
@@ -53,7 +42,7 @@ import "../styles.css";
 	  "name": "GDG Productions",
 	  "url": "https://gdgproductions.ca",
 	  "logo": "https://gdgproductions.ca/logogdgproductions.jpg",
-	  "description": "GDG Productions est une agence de développement numérique spécialisée dans le développement web, les applications mobiles et le design sur mesure basée à Montréal, Canada.",
+	  "description": "GDG Productions est une agence de développement numérique spécialisée dans le développement web et le design sur mesure basée à Montréal, Canada.",
 	  "address": {
 	    "@type": "PostalAddress",
 	    "addressLocality": "Montreal",
@@ -62,9 +51,8 @@ import "../styles.css";
 	  },
 	  "contactPoint": {
 	    "@type": "ContactPoint",
-	    "telephone": "+1-XXX-XXX-XXXX",
 	    "contactType": "customer service",
-	    "email": "contact@gdgproductions.com",
+	    "email": "gnimdaoqc@gmail.com",
 	    "availableLanguage": ["French", "English"]
 	  },
 	  "sameAs": [
@@ -75,16 +63,15 @@ import "../styles.css";
 	    "@type": "Person",
 	    "name": "Grégoire Gnim DAO"
 	  },
-	  "slogan": "Par-delà les nuages, au-delà du ciel - Transformons vos idées en réalité numérique",
+	  "slogan": "Création de sites web professionnels qui font briller votre entreprise",
 	  "knowsAbout": [
-	    "Web Development",
-	    "Mobile Application Development",
-	    "UI/UX Design",
-	    "Digital Transformation",
-	    "React",
-	    "Node.js",
+	    "Sites Web Vitrines",
+	    "Landing Pages",
+	    "Portfolios en Ligne",
+	    "Design Web Responsive",
+	    "SEO & Référencement",
 	    "Astro",
-	    "TypeScript"
+	    "HTML/CSS/JavaScript"
 	  ],
 	  "areaServed": {
 	    "@type": "GeoCircle",
@@ -98,18 +85,18 @@ import "../styles.css";
 	  "offers": [
 	    {
 	      "@type": "Service",
-	      "name": "Développement Web",
-	      "description": "Sites web modernes et performants utilisant les dernières technologies"
+	      "name": "Sites Web Modernes",
+	      "description": "Sites vitrines rapides et élégants pour entreprises et professionnels"
 	    },
 	    {
 	      "@type": "Service",
-	      "name": "Applications Mobiles",
-	      "description": "Applications natives et cross-platform pour iOS et Android"
+	      "name": "Sites Vitrines & Portfolios",
+	      "description": "Présentation professionnelle de vos services, produits ou réalisations"
 	    },
 	    {
 	      "@type": "Service",
-	      "name": "Design & Branding",
-	      "description": "Identité visuelle unique et expériences utilisateur exceptionnelles"
+	      "name": "Design & Personnalisation",
+	      "description": "Interface web sur mesure avec design unique et navigation intuitive"
 	    }
 	  ]
 	}
@@ -148,6 +135,7 @@ import "../styles.css";
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
 	<!-- TODO: Héberger les polices localement ou obtenir consentement -->
+	<!-- Google Fonts sera chargé par le consent-manager si autorisé -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -197,7 +185,7 @@ import "../styles.css";
 				Du charbon brut au diamant stellaire
 			</p>
 			<p class="hero-description" data-aos="fade-up" data-aos-delay="600">
-				Sublimons vos idées en joyaux numériques étincelants
+				Création de sites web vitrines modernes pour entreprises, artisans et professionnels. Design élégant, performances optimales et référencement naturel.
 			</p>
 			<div class="hero-cta" data-aos="fade-up" data-aos-delay="800">
 				<a href="#contact" class="btn btn-primary">
@@ -260,41 +248,40 @@ import "../styles.css";
 			<div class="services-grid">
 				<div class="service-card" data-aos="fade-up" data-aos-delay="100">
 					<div class="service-icon">
-						<i class="fas fa-code"></i>
-					</div>
-					<h3>Développement Web</h3>
-					<p>Sites vitrines, e-commerce et applications web sur mesure, conçus avec les dernières technologies pour une performance optimale.</p>
-					<ul class="service-features">
-						<li><i class="fas fa-check"></i> Design responsive</li>
-						<li><i class="fas fa-check"></i> SEO optimisé</li>
-						<li><i class="fas fa-check"></i> Performance maximale</li>
+					<i class="fas fa-laptop-code"></i>
+				</div>
+				<h3>Sites Web Modernes</h3>
+				<p>Sites web rapides et élégants construits avec les technologies actuelles (Astro, React). Parfait pour entreprises, artisans et professionnels.</p>
+				<ul class="service-features">
+					<li><i class="fas fa-check"></i> Design responsive</li>
+					<li><i class="fas fa-check"></i> SEO optimisé</li>
+					<li><i class="fas fa-check"></i> Chargement ultra-rapide</li>
 					</ul>
 					<a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
 				</div>
 				<div class="service-card featured" data-aos="fade-up" data-aos-delay="200">
 					<div class="featured-badge">Populaire</div>
 					<div class="service-icon">
-						<i class="fas fa-mobile-alt"></i>
-					</div>
-					<h3>Applications Mobiles</h3>
-					<p>Solutions mobiles natives et cross-platform adaptées à vos besoins, avec une expérience utilisateur fluide et intuitive.</p>
-					<ul class="service-features">
-						<li><i class="fas fa-check"></i> iOS & Android</li>
-						<li><i class="fas fa-check"></i> Interface intuitive</li>
-						<li><i class="fas fa-check"></i> Intégrations API</li>
+					<i class="fas fa-store"></i>
+				</div>
+				<h3>Sites Vitrines & Portfolios</h3>
+				<p>Sites web modernes pour présenter votre entreprise, vos services ou votre portfolio. Design élégant et navigation intuitive.</p>
+				<ul class="service-features">
+					<li><i class="fas fa-check"></i> Design sur mesure</li>
+					<li><i class="fas fa-check"></i> Formulaires de contact</li>
 					</ul>
 					<a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
 				</div>
 				<div class="service-card" data-aos="fade-up" data-aos-delay="300">
 					<div class="service-icon">
-						<i class="fas fa-palette"></i>
-					</div>
-					<h3>Design & Branding</h3>
-					<p>Identité visuelle, logo, charte graphique et design d'interface pour marquer les esprits et créer une image mémorable.</p>
-					<ul class="service-features">
-						<li><i class="fas fa-check"></i> Identité unique</li>
-						<li><i class="fas fa-check"></i> UX/UI Design</li>
-						<li><i class="fas fa-check"></i> Support complet</li>
+					<i class="fas fa-paint-brush"></i>
+				</div>
+				<h3>Design & Personnalisation</h3>
+				<p>Interface web sur mesure, palettes de couleurs harmonieuses et mises en page créatives pour un site qui vous ressemble.</p>
+				<ul class="service-features">
+					<li><i class="fas fa-check"></i> Design unique</li>
+					<li><i class="fas fa-check"></i> Interface intuitive</li>
+					<li><i class="fas fa-check"></i> Révisions incluses</li>
 					</ul>
 					<a href="#contact" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
 				</div>
@@ -367,11 +354,11 @@ import "../styles.css";
 				<div class="portfolio-item" data-aos="zoom-in" data-aos-delay="200">
 					<div class="portfolio-image">
 						<div class="portfolio-placeholder">
-							<i class="fas fa-mobile-screen"></i>
-						</div>
-						<div class="portfolio-overlay">
-							<h3>Application Mobile</h3>
-							<p>App de services géolocalisés</p>
+						<i class="fas fa-images"></i>
+					</div>
+					<div class="portfolio-overlay">
+						<h3>Portfolio Créatif</h3>
+						<p>Galerie photos & réalisations</p>
 							<a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
 						</div>
 					</div>
@@ -423,26 +410,61 @@ import "../styles.css";
 						<a href="https://github.com/GnimGregoireDAO/GnimGregoireDAO" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
 					</div>
 				</div>
-				<!-- LOI 25: Formulaire de contact commenté - collecte de données personnelles -->
-				<!-- Nécessite: politique de confidentialité, consentement, durée conservation, etc. -->
-				<!-- <form id="contactForm" class="contact-form" data-aos="fade-left">
+				<!-- Formulaire de contact conforme Loi 25 -->
+				<form id="contactForm" class="contact-form" data-aos="fade-left">
 					<div class="form-group">
-						<input type="text" id="name" name="name" placeholder="Votre nom" required minlength="2" maxlength="100">
+						<input type="text" id="name" name="name" placeholder="Votre nom *" required minlength="2" maxlength="100">
 					</div>
 					<div class="form-group">
-						<input type="email" id="email" name="email" placeholder="Votre email" required>
+						<input type="email" id="email" name="email" placeholder="Votre email *" required>
 					</div>
+					<!-- Honeypot anti-spam -->
 					<input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 					<div class="form-group">
-						<textarea id="message" name="message" rows="5" placeholder="Votre message" required minlength="10" maxlength="5000"></textarea>
+						<textarea id="message" name="message" rows="5" placeholder="Votre message *" required minlength="10" maxlength="5000"></textarea>
 					</div>
+					
+					<!-- LOI 25: Consentements requis -->
+					<div class="consent-checkboxes">
+						<label class="consent-checkbox">
+							<input type="checkbox" id="consent-data" name="consent_data" required>
+							<span class="checkmark"></span>
+							<span class="consent-text">
+								J'accepte que mes données personnelles soient collectées et traitées pour répondre à ma demande. 
+								<a href="/privacy" target="_blank" rel="noopener">Politique de confidentialité</a> *
+							</span>
+						</label>
+						
+						<label class="consent-checkbox">
+							<input type="checkbox" id="consent-storage" name="consent_storage" required>
+							<span class="checkmark"></span>
+							<span class="consent-text">
+								Je comprends que mes données seront conservées pendant 24 mois maximum et que je peux demander 
+								leur suppression à tout moment. *
+							</span>
+						</label>
+						
+						<label class="consent-checkbox optional">
+							<input type="checkbox" id="consent-marketing" name="consent_marketing">
+							<span class="checkmark"></span>
+							<span class="consent-text">
+								J'accepte de recevoir des informations sur les services de GDG Productions (optionnel)
+							</span>
+						</label>
+					</div>
+
+					<div class="form-info">
+						<i class="fas fa-shield-alt"></i>
+						<p>Vos données sont protégées conformément à la Loi 25 du Québec. 
+						Vous disposez d'un droit d'accès, de rectification et de suppression.</p>
+					</div>
+					
 					<button type="submit" id="submitBtn" class="btn btn-primary">
 						<span id="btnText">Envoyer</span>
 						<i class="fas fa-paper-plane"></i>
 					</button>
 					<p id="formStatus" style="margin-top: 1rem; font-weight: 500;"></p>
-				</form> -->
-				<p style="padding: 2rem; text-align: center; color: var(--color-gold);">Formulaire temporairement désactivé pour mise en conformité Loi 25</p>
+				</form>
 			</div>
 		</div>
 	</section>
@@ -463,6 +485,7 @@ import "../styles.css";
 						<li><a href="#approach">Approche</a></li>
 						<li><a href="#portfolio">Portfolio</a></li>
 						<li><a href="#contact">Contact</a></li>
+						<li><a href="/privacy">Politique de Confidentialité</a></li>
 					</ul>
 				</div>
 				<!-- LOI 25: Newsletter commentée - collecte d'emails sans consentement -->
@@ -813,14 +836,13 @@ import "../styles.css";
 			
 			animateCircles();
 		} */
+
+	// ============ Formulaire de Contact (Loi 25 Conforme) ============
+	const contactForm = document.getElementById('contactForm');
+	if (contactForm) {
+		// URL de ton API Vercel
+		const API_URL = 'https://contact-api-beige.vercel.app/api/contact';
 		
-		// ============ Formulaire de Contact ============
-		// LOI 25: Script du formulaire commenté
-		/* const contactForm = document.getElementById('contactForm');
-		if (contactForm) {
-			// URL de ton API Vercel
-			const API_URL = 'https://contact-api-beige.vercel.app/api/contact';
-			
 			contactForm.addEventListener('submit', async function(e) {
 				e.preventDefault();
 				
@@ -836,6 +858,16 @@ import "../styles.css";
 					return;
 				}
 				
+				// Vérifier les consentements obligatoires (Loi 25)
+				const consentData = document.getElementById('consent-data');
+				const consentStorage = document.getElementById('consent-storage');
+				
+				if (!consentData.checked || !consentStorage.checked) {
+					status.textContent = '❌ Veuillez accepter les conditions obligatoires';
+					status.style.color = '#f44336';
+					return;
+				}
+				
 				// Désactiver le bouton
 				button.disabled = true;
 				const originalText = btnText.textContent;
@@ -846,7 +878,9 @@ import "../styles.css";
 				const data = {
 					name: form.name.value.trim(),
 					email: form.email.value.trim(),
-					message: form.message.value.trim()
+					message: form.message.value.trim(),
+					consent_marketing: form.consent_marketing.checked,
+					consent_timestamp: new Date().toISOString()
 				};
 				
 				try {
@@ -859,7 +893,7 @@ import "../styles.css";
 					const result = await response.json();
 					
 					if (response.ok && result.ok) {
-						status.textContent = '✅ Message envoyé avec succès !';
+						status.textContent = '✅ Message envoyé avec succès ! Nous vous répondrons sous 48h.';
 						status.style.color = '#4CAF50';
 						form.reset();
 					} else {
@@ -875,10 +909,13 @@ import "../styles.css";
 					btnText.textContent = originalText;
 				}
 			});
-		} */
+		}
 		
 		console.log('All animations and interactions initialized');
 	});
 	</script>
+	
+	<!-- Système de gestion des consentements (Loi 25) -->
+	<script src="/src/consent-manager.js" type="module"></script>
 </body>
 </html>
