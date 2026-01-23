@@ -1,6 +1,5 @@
 ---
 import "../styles.css";
-import "../consent-styles.css";
 ---
 
 <!DOCTYPE html>
@@ -14,6 +13,9 @@ import "../consent-styles.css";
 	<meta name="description" content="Découvrez GDG Productions, spécialisée dans la création de sites web vitrines modernes. Notre passion pour le design et l'excellence au service de votre présence en ligne.">
 	<meta name="robots" content="index, follow, max-image-preview:large">
 	<link rel="canonical" href="https://gdgproductions.ca/about">
+	
+	<!-- Loi 25 - Styles du système de consentement -->
+	<link rel="stylesheet" href="/consent-styles.css">
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
@@ -870,8 +872,6 @@ import "../consent-styles.css";
 	</script>
 	
 	<!-- Système de gestion des consentements (Loi 25) -->
-	<script type="module">
-		import '/src/consent-manager.js';
-	</script>
+	<script src="/consent-manager.js" type="module"></script>
 </body>
 </html>
