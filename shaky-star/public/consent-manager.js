@@ -188,6 +188,12 @@ class ConsentManager {
         document.body.appendChild(modal);
         setTimeout(() => modal.classList.add('active'), 50);
 
+        // Pré-remplir les toggles avec les préférences existantes
+        if (this.consentData) {
+            document.getElementById('consent-analytics').checked = this.consentData.analytics || false;
+            document.getElementById('consent-fonts').checked = this.consentData.fonts || false;
+        }
+
         // Événements
         document.getElementById('modal-close').addEventListener('click', () => this.closeModal());
         document.getElementById('modal-save').addEventListener('click', () => this.saveCustom());
