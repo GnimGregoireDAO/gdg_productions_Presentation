@@ -1512,6 +1512,11 @@ section {
 }
 
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+        height: 70px;
+    }
+
     .nav-links {
         position: fixed;
         top: 70px;
@@ -1528,34 +1533,35 @@ section {
         z-index: 999;
         padding: 2rem 0;
     }
-    
+
     .nav-links.active {
         left: 0;
     }
-    
+
     .nav-links li {
         width: 100%;
         text-align: center;
     }
-    
+
     .nav-links a {
         font-size: clamp(1rem, 2.5vw, 1.2rem);
         display: block;
         padding: 1rem;
     }
-    
+
     .nav-about {
         margin-left: 0;
         margin-top: 1rem;
     }
-    
+
     .btn-about {
         padding: clamp(0.6rem, 1.5vw, 0.8rem) clamp(1.5rem, 3vw, 2rem);
         font-size: clamp(0.9rem, 2vw, 1.2rem);
     }
-    
+
     .menu-toggle {
         display: flex;
+        margin-left: auto;
     }
     
     .logo-container {
@@ -1648,18 +1654,44 @@ section {
 }
 
 @media (max-width: 480px) {
+    .nav-container {
+        padding: 0 0.75rem;
+        height: 70px;
+        gap: 0.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.3rem;
+    }
+
+    .logo-subtitle {
+        font-size: 0.5rem;
+    }
+
+    .menu-toggle {
+        min-width: 40px;
+        min-height: 40px;
+        padding: 0.5rem;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+    }
+
     .logo-container {
         width: clamp(180px, 55vw, 250px);
         height: clamp(180px, 55vw, 250px);
         border-width: clamp(2px, 1.5vw, 4px);
         margin: 0 auto clamp(1rem, 2vw, 2rem);
     }
-    
+
     .hero-title {
         font-size: clamp(1.8rem, 5vw, 2.5rem);
         margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
     }
-    
+
     .hero-subtitle {
         font-size: clamp(1rem, 2.5vw, 1.2rem);
     }
