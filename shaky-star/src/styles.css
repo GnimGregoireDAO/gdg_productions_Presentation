@@ -217,6 +217,7 @@ body::after {
     position: relative;
     z-index: 1002;
     height: 70px;
+    gap: 1rem;
 }
 
 .nav-logo {
@@ -229,7 +230,7 @@ body::after {
 
 .logo-text {
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1.3rem, 4vw, 2rem);
     font-weight: 900;
     color: var(--color-gold);
     letter-spacing: 0.1em;
@@ -335,15 +336,16 @@ body::after {
 }
 
 .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
+    transform: translateX(-20px);
 }
 
 .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ============ Hero Section ============ */
@@ -1512,17 +1514,30 @@ section {
 }
 
 @media (max-width: 768px) {
+    .main-nav {
+        padding: 0.5rem 0;
+    }
+
     .nav-container {
         padding: 0 1rem;
-        height: 70px;
+        height: 60px;
+        gap: 0.75rem;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .logo-subtitle {
+        font-size: 0.45rem;
     }
 
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 60px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 60px);
         background: rgba(62, 39, 35, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
@@ -1562,6 +1577,9 @@ section {
     .menu-toggle {
         display: flex;
         margin-left: auto;
+        min-width: 42px;
+        min-height: 42px;
+        flex-shrink: 0;
     }
     
     .logo-container {
@@ -1654,30 +1672,42 @@ section {
 }
 
 @media (max-width: 480px) {
+    .main-nav {
+        padding: 0.4rem 0;
+    }
+
     .nav-container {
         padding: 0 0.75rem;
-        height: 70px;
+        height: 55px;
         gap: 0.5rem;
     }
 
     .logo-text {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
     }
 
     .logo-subtitle {
-        font-size: 0.5rem;
+        font-size: 0.4rem;
+        letter-spacing: 0.2em;
     }
 
     .menu-toggle {
         min-width: 40px;
         min-height: 40px;
-        padding: 0.5rem;
+        padding: 0.45rem;
         margin-left: auto;
         flex-shrink: 0;
     }
 
     .menu-toggle span {
-        width: 22px;
+        width: 20px;
+        height: 2px;
+    }
+
+    .nav-links {
+        top: 55px;
+        height: calc(100vh - 55px);
     }
 
     .logo-container {

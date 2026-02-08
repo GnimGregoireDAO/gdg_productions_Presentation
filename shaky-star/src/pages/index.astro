@@ -617,11 +617,16 @@ import "../styles.css";
 				duration: 0.8,
 				stagger: 0.2
 			}, '-=0.4')
-			.from('.hero-text', {
+			.from('.hero-subtitle', {
 				y: 30,
 				opacity: 0,
 				duration: 0.6
 			}, '-=0.4')
+			.from('.hero-description', {
+				y: 30,
+				opacity: 0,
+				duration: 0.6
+			}, '-=0.3')
 			.from('.hero-cta .btn', {
 				scale: 0,
 				opacity: 0,
@@ -630,7 +635,7 @@ import "../styles.css";
 			}, '-=0.2');
 		
 		// ============ Floating Shapes Animation ============
-		const shapes = document.querySelectorAll('.geometric-shape');
+		const shapes = document.querySelectorAll('.shape');
 		shapes.forEach((shape, i) => {
 			gsap.to(shape, {
 				y: 'random(-100, 100)',
@@ -770,8 +775,8 @@ import "../styles.css";
 		// ============ Parallax Effect ============
 		window.addEventListener('scroll', () => {
 			const scrolled = window.pageYOffset;
-			const parallaxElements = document.querySelectorAll('.logo-container, .geometric-shape');
-			
+			const parallaxElements = document.querySelectorAll('.logo-container, .shape');
+
 			parallaxElements.forEach(el => {
 				const speed = el.dataset.speed || 0.5;
 				el.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
