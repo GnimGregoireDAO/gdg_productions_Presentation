@@ -4,21 +4,24 @@
 // ====================================
 
 class ConsentManager {
+    cookieName = 'gdg_consent_preferences';
+    consentData = null;
+
     constructor() {
-        this.cookieName = 'gdg_consent_preferences';
         this.consentData = this.loadConsent();
         this.init();
     }
 
     // Initialisation
     init() {
-        // Si pas de consentement enregistré, afficher le banner
-        if (!this.consentData) {
-            this.showBanner();
-        } else {
-            // Charger les services selon les préférences
+        // Charger les services si un consentement existe, sinon afficher le bandeau.
+        if (this.consentData) {
             this.loadServices();
+            this.setupEventListeners();
+            return;
         }
+
+        this.showBanner();
 
         // Écouter les boutons de gestion des cookies
         this.setupEventListeners();
@@ -47,7 +50,6 @@ class ConsentManager {
     // Sauvegarder les préférences
     saveConsent(preferences) {
         const consentData = {
-            analytics: preferences.analytics || false,
             fonts: preferences.fonts || false,
             timestamp: new Date().toISOString()
         };
@@ -133,25 +135,6 @@ class ConsentManager {
                     <div class="consent-category">
                         <div class="consent-category-header">
                             <div>
-                                <h3><i class="fas fa-chart-line"></i> Cookies Analytiques</h3>
-                                <label class="switch">
-                                    <input type="checkbox" id="consent-analytics">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <p>
-                            Nous permettent de comprendre comment les visiteurs utilisent notre site pour l'améliorer. 
-                            Données anonymisées et agrégées uniquement.
-                        </p>
-                        <ul class="cookie-list">
-                            <li><strong>Tinylytics</strong> - Statistiques de visite anonymes (14 mois)</li>
-                        </ul>
-                    </div>
-
-                    <div class="consent-category">
-                        <div class="consent-category-header">
-                            <div>
                                 <h3><i class="fas fa-font"></i> Google Fonts</h3>
                                 <label class="switch">
                                     <input type="checkbox" id="consent-fonts">
@@ -190,7 +173,6 @@ class ConsentManager {
 
         // Pré-remplir les toggles avec les préférences existantes
         if (this.consentData) {
-            document.getElementById('consent-analytics').checked = this.consentData.analytics || false;
             document.getElementById('consent-fonts').checked = this.consentData.fonts || false;
         }
 
@@ -204,7 +186,7 @@ class ConsentManager {
 
     // Accepter tout
     acceptAll() {
-        this.saveConsent({ analytics: true, fonts: true });
+        this.saveConsent({ fonts: true });
         this.hideBanner();
         this.loadServices();
         this.showNotification('✓ Préférences enregistrées. Merci !', 'success');
@@ -212,17 +194,16 @@ class ConsentManager {
 
     // Refuser tout (sauf essentiels)
     rejectAll() {
-        this.saveConsent({ analytics: false, fonts: false });
+        this.saveConsent({ fonts: false });
         this.hideBanner();
         this.showNotification('✓ Seuls les cookies essentiels sont activés', 'info');
     }
 
     // Sauvegarder les choix personnalisés
     saveCustom() {
-        const analytics = document.getElementById('consent-analytics').checked;
         const fonts = document.getElementById('consent-fonts').checked;
         
-        this.saveConsent({ analytics, fonts });
+        this.saveConsent({ fonts });
         this.closeModal();
         this.hideBanner();
         this.loadServices();
@@ -238,10 +219,6 @@ class ConsentManager {
             this.loadGoogleFonts();
         }
 
-        // Charger Analytics si autorisé
-        if (this.consentData.analytics) {
-            this.loadAnalytics();
-        }
     }
 
     // Charger Google Fonts
@@ -253,17 +230,6 @@ class ConsentManager {
         link.rel = 'stylesheet';
         link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap';
         document.head.appendChild(link);
-    }
-
-    // Charger Analytics (Tinylytics)
-    loadAnalytics() {
-        if (document.getElementById('tinylytics-script')) return; // Déjà chargé
-
-        const script = document.createElement('script');
-        script.id = 'tinylytics-script';
-        script.src = 'https://tinylytics.app/embed/BkNCVK1kcz4y6kZSkEJ4.js';
-        script.defer = true;
-        document.head.appendChild(script);
     }
 
     // Cacher le banner
@@ -321,8 +287,8 @@ class ConsentManager {
 // Initialiser le gestionnaire au chargement de la page
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        window.consentManager = new ConsentManager();
+        globalThis.consentManager = new ConsentManager();
     });
 } else {
-    window.consentManager = new ConsentManager();
+    globalThis.consentManager = new ConsentManager();
 }

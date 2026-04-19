@@ -753,13 +753,14 @@ import "../styles.css";
 	</footer>
 
 	<!-- Scripts -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-	<script is:inline>
+	<script>
+		import { gsap } from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 		// Mobile menu
 		document.addEventListener('DOMContentLoaded', function() {
-			const menuToggle = document.querySelector('.menu-toggle');
-			const navLinks = document.querySelector('.nav-links');
+			const menuToggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+			const navLinks = document.querySelector<HTMLUListElement>('.nav-links');
 			
 			if (menuToggle && navLinks) {
 				console.log('About page - Menu elements found');
@@ -780,7 +781,8 @@ import "../styles.css";
 				
 				// Close menu when clicking outside
 				document.addEventListener('click', (e) => {
-					if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+					const target = e.target as Node | null;
+					if (!navLinks.contains(target) && !menuToggle.contains(target)) {
 						navLinks.classList.remove('active');
 						menuToggle.classList.remove('active');
 					}
@@ -790,10 +792,11 @@ import "../styles.css";
 			}
 
 			// Smooth scroll
-			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
 				anchor.addEventListener('click', function (e) {
 					e.preventDefault();
-					const target = document.querySelector(this.getAttribute('href'));
+					const href = anchor.getAttribute('href');
+					const target = href ? document.querySelector<HTMLElement>(href) : null;
 					if (target) {
 						window.scrollTo({
 							top: target.offsetTop - 80,
@@ -819,7 +822,7 @@ import "../styles.css";
 			});
 
 			// Story sections animation
-			gsap.utils.toArray('.story-container').forEach(container => {
+			gsap.utils.toArray<HTMLElement>('.story-container').forEach(container => {
 				gsap.from(container.children, {
 					scrollTrigger: {
 						trigger: container,
@@ -835,7 +838,7 @@ import "../styles.css";
 			});
 
 			// Values cards
-			gsap.utils.toArray('.value-card').forEach((card, index) => {
+			gsap.utils.toArray<HTMLElement>('.value-card').forEach((card, index) => {
 				gsap.from(card, {
 					scrollTrigger: {
 						trigger: card,
@@ -852,7 +855,7 @@ import "../styles.css";
 			});
 
 			// Journey timeline
-			gsap.utils.toArray('.journey-item').forEach((item, index) => {
+			gsap.utils.toArray<HTMLElement>('.journey-item').forEach((item, index) => {
 				const isEven = index % 2 === 0;
 				gsap.from(item, {
 					scrollTrigger: {
