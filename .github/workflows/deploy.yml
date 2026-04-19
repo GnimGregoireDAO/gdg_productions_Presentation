@@ -17,6 +17,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_CONTACT_API_URL: ${{ secrets.PUBLIC_CONTACT_API_URL }}
     defaults:
       run:
         working-directory: ./shaky-star

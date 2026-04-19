@@ -1,5 +1,7 @@
 ---
 import "../styles.css";
+
+const CONTACT_API_URL = (import.meta.env.PUBLIC_CONTACT_API_URL || '').trim();
 ---
 
 <!DOCTYPE html>
@@ -140,7 +142,7 @@ import "../styles.css";
 	<!-- Google Fonts sera chargé par le consent-manager si autorisé -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body data-contact-api-url={CONTACT_API_URL}>
 	<!-- Floating Geometric Shapes -->
 	<div class="geometric-bg">
 		<div class="shape shape-diamond"></div>
@@ -847,8 +849,8 @@ import "../styles.css";
 	// ============ Formulaire de Contact (Loi 25 Conforme) ============
 	const contactForm = document.getElementById('contactForm');
 	if (contactForm) {
-		// URL de ton API Vercel
-		const API_URL = 'https://contact-api-beige.vercel.app/api/contact';
+		// URL API configurable via env Astro: PUBLIC_CONTACT_API_URL
+		const API_URL = document.body.dataset.contactApiUrl || '';
 		
 			contactForm.addEventListener('submit', async function(e) {
 				e.preventDefault();
@@ -880,6 +882,14 @@ import "../styles.css";
 				const originalText = btnText.textContent;
 				btnText.textContent = 'Envoi en cours...';
 				status.textContent = '';
+
+				if (!API_URL) {
+					status.textContent = '❌ Service de contact non configuré. Veuillez réessayer plus tard.';
+					status.style.color = '#f44336';
+					button.disabled = false;
+					btnText.textContent = originalText;
+					return;
+				}
 				
 				// Préparer les données
 				const data = {

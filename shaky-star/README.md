@@ -61,6 +61,17 @@ Pour plus de détails : **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**
 | `npm run build` | Build production → `./dist/` |
 | `npm run preview` | Preview du build |
 
+## ⚙️ Configuration Formulaire Contact
+
+Le formulaire utilise une API externe configurable via variable d'environnement Astro.
+
+1. Créer le fichier local `.env` dans ce dossier à partir de `.env.example`
+2. Définir la variable:
+
+`PUBLIC_CONTACT_API_URL=https://votre-api-vercel.vercel.app/api/contact`
+
+Sans cette variable, le formulaire affiche un message de service non configuré.
+
 ---
 
 ## ✨ Fonctionnalités

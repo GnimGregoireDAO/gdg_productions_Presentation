@@ -3,15 +3,44 @@
 // 1. Importation de nodemailer
 const nodemailer = require('nodemailer');
 
+const defaultAllowedOrigins = [
+    'https://gdgproductions.ca',
+    'https://www.gdgproductions.ca',
+    'http://localhost:4321'
+];
+
+function parseAllowedOrigins() {
+    const raw = process.env.ALLOWED_ORIGINS;
+    if (!raw) return defaultAllowedOrigins;
+    return raw
+        .split(',')
+        .map((origin) => origin.trim())
+        .filter(Boolean);
+}
+
+function applyCors(req, res) {
+    const allowedOrigins = parseAllowedOrigins();
+    const requestOrigin = req.headers.origin;
+    const allowAll = allowedOrigins.includes('*');
+    const resolvedOrigin = allowAll
+        ? (requestOrigin || '*')
+        : (allowedOrigins.includes(requestOrigin) ? requestOrigin : allowedOrigins[0]);
+
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Origin', resolvedOrigin);
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Max-Age', '86400');
+}
+
 // 2. Fonction principale (Vercel l'appel automatiquement)
 module.exports = async function handler(req, res){
 
+    applyCors(req, res);
+
     // 3. Gérer les requetes CORS preflight (le navigateur envoie OPTIONS avant POST)
     if (req.method === 'OPTIONS') {
-        res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
-        res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-        return res.status(200).end();
+        return res.status(204).end();
     }
 
     // 4. Accepter uniquement POST
@@ -19,11 +48,9 @@ module.exports = async function handler(req, res){
        return res.status(405).json({ error: 'Methode non autorisée' })
     }
 
-    // 5. Ajouter les headers CORS pour la réponse
-    res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
-
     // 6. Extraire les données du formulaire par destructuration d'objets
-    const {name, email, message, consent_marketing, consent_timestamp} = req.body;
+    const payload = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+    const {name, email, message, consent_marketing, consent_timestamp} = payload;
 
     // 7. Validation des champs
     if (!name || !email || !message) {
