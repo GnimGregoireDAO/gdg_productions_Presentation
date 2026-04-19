@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7560c75-7281-4020-a605-937f5294dc9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/shaky-star/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/shaky-star/src/pages/index.astro" afterDir="false" />
-    </list>
+    <list default="true" id="f7560c75-7281-4020-a605-937f5294dc9b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/shaky-star" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -74,6 +72,7 @@
       <workItem from="1766922801936" duration="1189000" />
       <workItem from="1767011558137" duration="764000" />
       <workItem from="1767012343390" duration="19000" />
+      <workItem from="1772139804184" duration="21000" />
     </task>
     <servers />
   </component>

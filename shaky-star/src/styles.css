@@ -65,6 +65,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -74,6 +76,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    width: 100%;
+    max-width: 100%;
 }
 
 /* African pattern texture overlay */
@@ -198,6 +202,7 @@ body::after {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     background: rgba(62, 39, 35, 0.95);
     backdrop-filter: blur(10px);
@@ -205,10 +210,12 @@ body::after {
     padding: clamp(0.75rem, 2vw, 1rem) 0;
     border-bottom: 2px solid var(--color-gold);
     transition: var(--transition-normal);
+    overflow-x: clip;
 }
 
 .nav-container {
     max-width: 1400px;
+    width: min(100%, 1400px);
     margin: 0 auto;
     padding: 0 clamp(1rem, 2vw, 2rem);
     display: flex;
@@ -1520,8 +1527,14 @@ section {
 
     .nav-container {
         padding: 0 1rem;
+        padding-right: 4.25rem;
         height: 60px;
         gap: 0.75rem;
+    }
+
+    .nav-logo {
+        min-width: 0;
+        max-width: calc(100% - 4.5rem);
     }
 
     .logo-text {
@@ -1576,7 +1589,11 @@ section {
 
     .menu-toggle {
         display: flex;
-        margin-left: auto;
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        margin-left: 0;
         min-width: 42px;
         min-height: 42px;
         flex-shrink: 0;
@@ -1678,6 +1695,7 @@ section {
 
     .nav-container {
         padding: 0 0.75rem;
+        padding-right: 3.75rem;
         height: 55px;
         gap: 0.5rem;
     }
@@ -1693,10 +1711,11 @@ section {
     }
 
     .menu-toggle {
-        min-width: 40px;
-        min-height: 40px;
+        min-width: 38px;
+        min-height: 38px;
         padding: 0.45rem;
-        margin-left: auto;
+        right: 0.75rem;
+        margin-left: 0;
         flex-shrink: 0;
     }
 
