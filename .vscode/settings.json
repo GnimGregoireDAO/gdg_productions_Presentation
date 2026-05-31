@@ -1,3 +1,7 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "gnimgregoiredao",
+        "projectKey": "GnimGregoireDAO_gdg_productions_Presentation"
+    }
 }
