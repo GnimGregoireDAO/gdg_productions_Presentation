@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<Layout
+	title="Contact | GDG Productions"
+	description="Parlez-nous de votre projet de site web. GDG Productions, studio web à Montréal : courriel, téléphone ou formulaire."
+	path="/contact"
+>
+	<section class="page-hero">
+		<div class="wrap page-hero-grid">
+			<div>
+				<p class="eyebrow">Contact</p>
+				<h1>Le prochain diamant, c'est <em>peut-être le vôtre.</em></h1>
+				<p class="lead">Pas besoin d'avoir tout planifié. Racontez-nous où vous voulez aller, on verra ensemble comment y arriver.</p>
+			</div>
+			<div class="page-hero-art"><img src="/img/ville.webp" alt="Une ville au crépuscule sous un diamant lumineux, traversée de rubans aux motifs géométriques." width="1500" height="1860" /></div>
+		</div>
+	</section>
+
+	<section class="section on-light">
+		<div class="wrap contact-grid">
+			<div class="contact-side" data-reveal>
+				<h2>Un premier échange, sans pression.</h2>
+				<p>Décrivez votre entreprise et ce que vous souhaitez accomplir. Nous vous répondrons pour discuter de la suite.</p>
+				<div class="contact-list">
+					<a href="mailto:gnimdaoqc@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> gnimdaoqc@gmail.com</a>
+					<a href="tel:+14382829977"><i class="fas fa-phone" aria-hidden="true"></i> +1 438 282 9977</a>
+					<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Montréal, Canada</span>
+					<a href="https://www.instagram.com/gdg_productions_x_dg/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a>
+					<a href="https://github.com/GnimGregoireDAO/GnimGregoireDAO" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+				</div>
+			</div>
+			<div data-reveal style="--d: .12s"><ContactForm /></div>
+		</div>
+	</section>
+</Layout>

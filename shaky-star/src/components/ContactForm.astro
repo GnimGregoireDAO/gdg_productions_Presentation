@@ -1,0 +1,105 @@
+<form id="contactForm" class="contact-form" novalidate>
+	<p class="form-heading">Quelques mots sur votre idée.</p>
+	<div class="field">
+		<label for="name">Votre nom <span aria-hidden="true">*</span></label>
+		<input type="text" id="name" name="name" placeholder="Ex. Camille Tremblay…" autocomplete="name" required minlength="2" maxlength="100" />
+	</div>
+	<div class="field">
+		<label for="email">Votre courriel <span aria-hidden="true">*</span></label>
+		<input type="email" id="email" name="email" autocomplete="email" spellcheck="false" required />
+	</div>
+	<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+	<div class="field">
+		<label for="message">Parlez-nous de votre projet <span aria-hidden="true">*</span></label>
+		<textarea id="message" name="message" rows="5" placeholder="Votre entreprise, vos objectifs, vos idées…" required minlength="10" maxlength="5000"></textarea>
+	</div>
+
+	<div class="consents">
+		<label class="check">
+			<input type="checkbox" id="consent-data" name="consent_data" required />
+			<span>J'accepte que mes données personnelles soient collectées et traitées pour répondre à ma demande. <a href="/privacy" target="_blank" rel="noopener">Politique de confidentialité</a> *</span>
+		</label>
+		<label class="check">
+			<input type="checkbox" id="consent-storage" name="consent_storage" required />
+			<span>Je comprends que mes données seront conservées pendant 24 mois maximum et que je peux demander leur suppression à tout moment. *</span>
+		</label>
+		<label class="check">
+			<input type="checkbox" id="consent-marketing" name="consent_marketing" />
+			<span>J'accepte de recevoir des informations sur les services de GDG Productions (optionnel)</span>
+		</label>
+	</div>
+
+	<p class="form-info"><i class="fas fa-shield-alt" aria-hidden="true"></i> Vos données sont protégées conformément à la Loi 25 du Québec. Vous disposez d'un droit d'accès, de rectification et de suppression.</p>
+
+	<button type="submit" id="submitBtn" class="btn btn-gold">
+		<span id="btnText">Envoyer</span> <span aria-hidden="true">↗</span>
+	</button>
+	<p id="formStatus" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+</form>
+
+<script>
+	const form = document.getElementById('contactForm') as HTMLFormElement | null;
+	if (form) {
+		const API_URL = document.body.dataset.contactApiUrl || '';
+		const status = document.getElementById('formStatus') as HTMLElement;
+		const button = document.getElementById('submitBtn') as HTMLButtonElement;
+		const btnText = document.getElementById('btnText') as HTMLElement;
+		const setStatus = (text: string, kind: 'ok' | 'error' | '') => {
+			status.textContent = text;
+			status.dataset.state = kind;
+		};
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const f = form.elements as any;
+
+			if (f.website.value) {
+				setStatus('Merci, votre message a bien été envoyé.', 'ok');
+				return;
+			}
+			if (!form.checkValidity()) {
+				form.reportValidity();
+				return;
+			}
+			if (!f.consent_data.checked || !f.consent_storage.checked) {
+				setStatus('Veuillez accepter les conditions obligatoires.', 'error');
+				return;
+			}
+			if (!API_URL) {
+				setStatus('Service de contact non configuré. Écrivez-nous directement à gnimdaoqc@gmail.com.', 'error');
+				return;
+			}
+
+			button.disabled = true;
+			const original = btnText.textContent;
+			btnText.textContent = 'Envoi en cours…';
+			setStatus('', '');
+
+			try {
+				const response = await fetch(API_URL, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						name: f.name.value.trim(),
+						email: f.email.value.trim(),
+						message: f.message.value.trim(),
+						consent_marketing: f.consent_marketing.checked,
+						consent_timestamp: new Date().toISOString(),
+					}),
+				});
+				const result = await response.json();
+				if (response.ok && result.ok) {
+					setStatus('Merci, votre message a bien été envoyé.', 'ok');
+					form.reset();
+				} else {
+					setStatus(result.error || 'Une erreur est survenue, veuillez réessayer.', 'error');
+				}
+			} catch {
+				setStatus('Erreur réseau, veuillez réessayer.', 'error');
+			} finally {
+				button.disabled = false;
+				btnText.textContent = original;
+			}
+		});
+	}
+</script>

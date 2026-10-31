@@ -1,0 +1,189 @@
+---
+import "../site.css";
+
+interface Props {
+	title: string;
+	description: string;
+	path?: string;
+	noindex?: boolean;
+}
+
+const { title, description, path = "/", noindex = false } = Astro.props;
+const SITE = "https://gdgproductions.ca";
+const url = SITE + path;
+const CONTACT_API_URL = (import.meta.env.PUBLIC_CONTACT_API_URL || "").trim();
+
+const links = [
+	{ href: "/", label: "Accueil" },
+	{ href: "/services", label: "Services" },
+	{ href: "/approche", label: "Approche" },
+	{ href: "/about", label: "À propos" },
+];
+const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const organization = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "GDG Productions",
+	url: SITE,
+	logo: `${SITE}/logogdgproductions.jpg`,
+	description:
+		"GDG Productions conçoit et développe des sites web sur mesure pour les petites entreprises et les entrepreneurs, à Montréal.",
+	address: { "@type": "PostalAddress", addressLocality: "Montréal", addressRegion: "QC", addressCountry: "CA" },
+	contactPoint: {
+		"@type": "ContactPoint",
+		contactType: "customer service",
+		email: "gnimdaoqc@gmail.com",
+		availableLanguage: ["French", "English"],
+	},
+	sameAs: [
+		"https://www.instagram.com/gdg_productions_x_dg/",
+		"https://github.com/GnimGregoireDAO/GnimGregoireDAO",
+	],
+	founder: { "@type": "Person", name: "Grégoire Gnim DAO" },
+	knowsAbout: ["Sites web vitrines", "Portfolios en ligne", "Design web responsive", "Référencement naturel", "Astro", "React"],
+};
+---
+
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" content="#1f1109" />
+	<meta name="google-site-verification" content="bgMXaXsUlkz7qJhgrhfTPtSNbm-H4Yke8tZjDP5ftyM" />
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+	<link rel="canonical" href={url} />
+	<link rel="icon" href="/favicon.ico" sizes="48x48" />
+	<link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
+	<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
+	<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<link rel="stylesheet" href="/consent-styles.css" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={url} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={`${SITE}/logogdgproductions.jpg`} />
+	<meta property="og:locale" content="fr_CA" />
+	<meta property="og:site_name" content="GDG Productions" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:image" content={`${SITE}/logogdgproductions.jpg`} />
+	<script type="application/ld+json" set:html={JSON.stringify(organization)} />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body data-contact-api-url={CONTACT_API_URL}>
+	<a class="skip-link" href="#main-content">Aller au contenu principal</a>
+	<header class="site-header">
+		<div class="header-inner">
+			<a href="/" class="brand">
+				<img class="logo-circle" src="/logogdgproductions.jpg" alt="" width="48" height="48" />
+				<span class="brand-text"><strong>GDG</strong><small>Productions</small></span>
+			</a>
+			<button type="button" class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="site-nav" aria-expanded="false">
+				<span></span><span></span><span></span>
+			</button>
+			<nav id="site-nav" class="site-nav" aria-label="Navigation principale">
+				<ul>
+					{links.map((l) => (
+						<li><a href={l.href} aria-current={current === l.href ? "page" : undefined}>{l.label}</a></li>
+					))}
+					<li><a class="btn btn-gold btn-small" href="/contact" aria-current={current === "/contact" ? "page" : undefined}>Parlons-en <span aria-hidden="true">↗</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main-content" tabindex="-1">
+		<slot />
+	</main>
+
+	<footer class="site-footer">
+		<div class="footer-inner">
+			<div class="footer-brand">
+				<img class="logo-circle logo-circle-lg" src="/logogdgproductions.jpg" alt="Logo GDG Productions" width="96" height="96" loading="lazy" />
+				<p class="footer-tagline">Du brut au remarquable.</p>
+				<p>Sites web sur mesure pour les petites entreprises et les entrepreneurs, à Montréal.</p>
+			</div>
+			<div>
+				<h2>Explorer</h2>
+				<ul>
+					<li><a href="/">Accueil</a></li>
+					<li><a href="/services">Services</a></li>
+					<li><a href="/approche">Approche</a></li>
+					<li><a href="/about">À propos</a></li>
+					<li><a href="/contact">Contact</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2>Nous joindre</h2>
+				<ul>
+					<li><a href="mailto:gnimdaoqc@gmail.com">gnimdaoqc@gmail.com</a></li>
+					<li><a href="tel:+14382829977">+1 438 282 9977</a></li>
+					<li><a href="https://www.instagram.com/gdg_productions_x_dg/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+					<li><a href="/privacy">Confidentialité</a></li>
+				</ul>
+			</div>
+		</div>
+		<p class="footer-bottom">&copy; {new Date().getFullYear()} GDG Productions. Tous droits réservés.</p>
+	</footer>
+
+	<script is:inline>
+	(function () {
+		var toggle = document.querySelector('.menu-toggle');
+		var nav = document.getElementById('site-nav');
+		if (toggle && nav) {
+			var setOpen = function (open) {
+				toggle.setAttribute('aria-expanded', String(open));
+				toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+				nav.classList.toggle('is-open', open);
+			};
+			toggle.addEventListener('click', function () {
+				setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+			});
+			nav.addEventListener('click', function (e) {
+				if (e.target.closest('a')) setOpen(false);
+			});
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+					setOpen(false);
+					toggle.focus();
+				}
+			});
+			document.addEventListener('click', function (e) {
+				if (!nav.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
+			});
+		}
+
+		var header = document.querySelector('.site-header');
+		var onScroll = function () {
+			header.classList.toggle('is-scrolled', window.scrollY > 12);
+		};
+		onScroll();
+		window.addEventListener('scroll', onScroll, { passive: true });
+
+		var items = document.querySelectorAll('[data-reveal]');
+		var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reduce || !('IntersectionObserver' in window)) {
+			items.forEach(function (el) { el.classList.add('is-visible'); });
+		} else {
+			document.documentElement.classList.add('js-reveal');
+			var io = new IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+						io.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+			items.forEach(function (el) { io.observe(el); });
+		}
+	})();
+	</script>
+	<script src="/consent-manager.js" type="module"></script>
+</body>
+</html>
