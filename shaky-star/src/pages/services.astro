@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Services | GDG Productions"
+	description="Sites vitrines, portfolios, design et développement web sur mesure, adaptés aux mobiles et pensés pour le référencement naturel. Studio web à Montréal."
+	path="/services"
+>
+	<section class="page-hero">
+		<div class="wrap page-hero-grid">
+			<div>
+				<p class="eyebrow">Services</p>
+				<h1>Tout ce qu'il faut pour <em>briller</em> en ligne.</h1>
+				<p class="lead">Trois façons de donner à votre entreprise une présence à son image. Chaque projet est conçu sur mesure, jamais copié d'un modèle.</p>
+			</div>
+			<div class="page-hero-art"><img src="/img/pierre-gouache.webp" alt="" width="2200" height="1228" /></div>
+		</div>
+	</section>
+
+	<section class="section on-light">
+		<div class="wrap">
+			<article id="vitrine" class="service-detail" data-reveal>
+				<div class="sd-art"><img src="/img/porte-vitrine.webp" alt="Une porte lumineuse ouverte sur un diamant, entourée de rubans de papier aux motifs géométriques." width="1500" height="1120" loading="lazy" /></div>
+				<div class="sd-text">
+					<p class="eyebrow">01 · Site vitrine</p>
+					<h2>Votre activité, sous son meilleur jour.</h2>
+					<p>Un site clair qui présente vos services, votre histoire et la façon de vous joindre, pensé pour la clientèle que vous voulez rencontrer.</p>
+					<ul class="ticks"><li>Structure claire et lecture agréable</li><li>Adapté aux mobiles, tablettes et ordinateurs</li><li>Prêt pour le référencement naturel</li></ul>
+				</div>
+			</article>
+			<article id="portfolio" class="service-detail" data-reveal>
+				<div class="sd-art"><img src="/img/galerie.webp" alt="Une galerie circulaire de cadres autour d'un grand losange lumineux." width="1500" height="2000" loading="lazy" /></div>
+				<div class="sd-text">
+					<p class="eyebrow">02 · Portfolio</p>
+					<h2>Montrez ce que vous savez faire.</h2>
+					<p>Donnez à vos créations, vos réalisations ou votre expertise l'espace qu'elles méritent pour convaincre dès le premier regard.</p>
+					<ul class="ticks"><li>Mise en valeur de vos visuels</li><li>Mise en page éditoriale sur mesure</li><li>Navigation simple et fluide</li></ul>
+				</div>
+			</article>
+			<article id="design" class="service-detail" data-reveal>
+				<div class="sd-art"><img src="/img/table-design.webp" alt="Une table d'atelier avec compas, crayon, tissus et un diamant entouré de rubans." width="2200" height="2200" loading="lazy" /></div>
+				<div class="sd-text">
+					<p class="eyebrow">03 · Design & développement</p>
+					<h2>Du caractère, jusque dans les détails.</h2>
+					<p>Une interface conçue sur mesure, développée avec des technologies web actuelles comme Astro et React, pour un site rapide et soigné.</p>
+					<ul class="ticks"><li>Identité visuelle respectée</li><li>Performance et accessibilité</li><li>Code propre et évolutif</li></ul>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<section class="section cta">
+		<div class="wrap" data-reveal>
+			<p class="eyebrow">Une idée en tête ?</p>
+			<h2>Dites-nous ce que vous imaginez.</h2>
+			<p>Un premier échange, sans pression, pour voir comment nous pouvons y donner forme.</p>
+			<a class="btn btn-gold" href="/contact">Parlons de votre projet <span aria-hidden="true">↗</span></a>
+		</div>
+	</section>
+</Layout>
