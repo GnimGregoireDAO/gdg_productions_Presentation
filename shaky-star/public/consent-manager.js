@@ -6,6 +6,9 @@
 class ConsentManager {
     constructor() {
         this.cookieName = 'gdg_consent_preferences';
+        // À renseigner depuis Google Ads : ID de balise (AW-XXXXXXXXXX) et étiquette de conversion
+        this.adsId = '';
+        this.adsLeadLabel = '';
         this.consentData = this.loadConsent();
         this.init();
     }
@@ -48,6 +51,7 @@ class ConsentManager {
     saveConsent(preferences) {
         const consentData = {
             analytics: preferences.analytics || false,
+            marketing: preferences.marketing || false,
             fonts: preferences.fonts || false,
             timestamp: new Date().toISOString()
         };
@@ -71,7 +75,7 @@ class ConsentManager {
                 <div class="consent-text">
                     <h3>🍪 Respect de votre vie privée</h3>
                     <p>
-                        Nous utilisons des cookies pour améliorer votre expérience. 
+                        Nous utilisons des cookies pour mesurer l'audience et l'efficacité de nos annonces. 
                         Conformément à la <strong>Loi 25 du Québec</strong>, nous avons besoin de votre consentement.
                     </p>
                     <p class="consent-detail">
@@ -152,6 +156,24 @@ class ConsentManager {
                     <div class="consent-category">
                         <div class="consent-category-header">
                             <div>
+                                <h3><i class="fas fa-bullhorn"></i> Publicité (Google Ads)</h3>
+                                <label class="switch">
+                                    <input type="checkbox" id="consent-marketing">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <p>
+                            Mesure les soumissions de formulaire issues de nos annonces Google. Peut transmettre des données à Google.
+                        </p>
+                        <ul class="cookie-list">
+                            <li><strong>Google Ads</strong> - Mesure des conversions (jusqu'à 90 jours)</li>
+                        </ul>
+                    </div>
+
+                    <div class="consent-category">
+                        <div class="consent-category-header">
+                            <div>
                                 <h3><i class="fas fa-font"></i> Google Fonts</h3>
                                 <label class="switch">
                                     <input type="checkbox" id="consent-fonts">
@@ -191,6 +213,7 @@ class ConsentManager {
         // Pré-remplir les toggles avec les préférences existantes
         if (this.consentData) {
             document.getElementById('consent-analytics').checked = this.consentData.analytics || false;
+            document.getElementById('consent-marketing').checked = this.consentData.marketing || false;
             document.getElementById('consent-fonts').checked = this.consentData.fonts || false;
         }
 
@@ -204,7 +227,7 @@ class ConsentManager {
 
     // Accepter tout
     acceptAll() {
-        this.saveConsent({ analytics: true, fonts: true });
+        this.saveConsent({ analytics: true, marketing: true, fonts: true });
         this.hideBanner();
         this.loadServices();
         this.showNotification('✓ Préférences enregistrées. Merci !', 'success');
@@ -212,7 +235,7 @@ class ConsentManager {
 
     // Refuser tout (sauf essentiels)
     rejectAll() {
-        this.saveConsent({ analytics: false, fonts: false });
+        this.saveConsent({ analytics: false, marketing: false, fonts: false });
         this.hideBanner();
         this.showNotification('✓ Seuls les cookies essentiels sont activés', 'info');
     }
@@ -220,9 +243,10 @@ class ConsentManager {
     // Sauvegarder les choix personnalisés
     saveCustom() {
         const analytics = document.getElementById('consent-analytics').checked;
+        const marketing = document.getElementById('consent-marketing').checked;
         const fonts = document.getElementById('consent-fonts').checked;
-        
-        this.saveConsent({ analytics, fonts });
+
+        this.saveConsent({ analytics, marketing, fonts });
         this.closeModal();
         this.hideBanner();
         this.loadServices();
@@ -242,6 +266,31 @@ class ConsentManager {
         if (this.consentData.analytics) {
             this.loadAnalytics();
         }
+
+        if (this.consentData.marketing) {
+            this.loadAds();
+        }
+    }
+
+    // Charger la balise Google Ads (consentement requis)
+    loadAds() {
+        if (!this.adsId || document.getElementById('gads-script')) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', this.adsId);
+        const script = document.createElement('script');
+        script.id = 'gads-script';
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + this.adsId;
+        document.head.appendChild(script);
+    }
+
+    // Conversion « formulaire envoyé » : sans effet sans consentement
+    trackLead() {
+        if (!this.consentData || !this.consentData.marketing || !this.adsId || !window.gtag) return;
+        if (this.adsLeadLabel) window.gtag('event', 'conversion', { send_to: this.adsId + '/' + this.adsLeadLabel });
+        window.gtag('event', 'generate_lead');
     }
 
     // Charger Google Fonts
