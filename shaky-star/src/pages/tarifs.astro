@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const plans = [
+	{ id: "portfolio", name: "Portfolio", launch: "550 $", regular: "800 $", from: false, pitch: "Pour présenter votre travail avec élégance.", pages: "1 à 3 pages", delay: "1 à 2 semaines" },
+	{ id: "vitrine", name: "Site vitrine", launch: "990 $", regular: "1 500 $", from: false, pitch: "Pour faire connaître votre entreprise et être contacté facilement.", pages: "4 à 6 pages", delay: "2 à 4 semaines" },
+	{ id: "mesure", name: "Sur mesure", launch: "1 600 $", regular: "2 300 $", from: true, pitch: "Pour un projet qui sort du cadre et demande un design entièrement conçu.", pages: "7 pages et plus, ou besoins particuliers", delay: "Selon le projet" },
+];
+
+const rows = [
+	{ label: "Pages", values: ["1 à 3", "4 à 6", "7 et plus, ou besoins particuliers"] },
+	{ label: "Design adapté à votre image", values: [true, true, "Design entièrement conçu pour vous"] },
+	{ label: "Compatible mobile", values: [true, true, true] },
+	{ label: "Référencement de base (titres, descriptions, vitesse)", values: [true, true, true] },
+	{ label: "Formulaire de contact", values: [false, true, true] },
+	{ label: "Fiche Google Entreprise configurée", values: [false, true, true] },
+	{ label: "Rondes de révisions", values: ["2", "2", "3"] },
+	{ label: "Délai (une fois le contenu reçu)", values: ["1 à 2 semaines", "2 à 4 semaines", "Selon le projet"] },
+];
+---
+
+<Layout
+	title="Tarifs | GDG Productions"
+	description="Des tarifs clairs, sans surprise : portfolio, site vitrine et site sur mesure. Offre de lancement : 3 places à prix réduit. Studio web à Montréal."
+	path="/tarifs"
+>
+	<section class="page-hero">
+		<div class="wrap page-hero-grid">
+			<div>
+				<p class="eyebrow">Tarifs</p>
+				<h1>Des tarifs clairs, <em>sans surprise.</em></h1>
+				<p class="lead">Offre de lancement : 3 places à prix réduit pour nos premiers projets.</p>
+			</div>
+			<div class="page-hero-art"><img src="/img/table-design.webp" alt="" width="2200" height="2200" /></div>
+		</div>
+	</section>
+
+	<section class="section on-light">
+		<div class="wrap">
+			<div class="section-head" data-reveal>
+				<p class="eyebrow">Trois formules</p>
+				<h2>Choisissez le point de départ qui vous ressemble.</h2>
+				<p>Chaque formule est conçue sur mesure. Les prix de lancement s'appliquent aux 3 premiers projets.</p>
+			</div>
+			<div class="plan-grid">
+				{plans.map((p, i) => (
+					<article class={`plan plan-${p.id}`} data-reveal style={`--d: ${i * 0.12}s`}>
+						<p class="plan-badge">Offre de lancement</p>
+						<h3>{p.name}</h3>
+						<p class="plan-pitch">{p.pitch}</p>
+						<p class="plan-price">
+							{p.from && <small>à partir de</small>}
+							<strong>{p.launch}</strong>
+						</p>
+						<p class="plan-old">
+							<span class="visually-hidden">Prix régulier : </span>
+							<s>{p.from ? "à partir de " : ""}{p.regular}</s>
+						</p>
+						<ul class="plan-facts">
+							<li>{p.pages}</li>
+							<li>Délai : {p.delay.toLowerCase()}</li>
+						</ul>
+						<a class="btn btn-gold" href="/contact">Parlons-en <span aria-hidden="true">↗</span></a>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="section on-green cut-r compare-section">
+		<div class="wrap">
+			<div class="section-head" data-reveal>
+				<p class="eyebrow">Comparer</p>
+				<h2>Ce qui est inclus, formule par formule.</h2>
+			</div>
+			<div class="table-scroll" data-reveal role="region" aria-label="Tableau comparatif des formules" tabindex="0">
+				<table class="compare">
+					<caption class="visually-hidden">Comparaison des formules Portfolio, Site vitrine et Sur mesure</caption>
+					<thead>
+						<tr>
+							<td></td>
+							{plans.map((p) => <th scope="col">{p.name}</th>)}
+						</tr>
+						<tr class="compare-price">
+							<th scope="row">Prix de lancement</th>
+							{plans.map((p) => <td>{p.from ? "à partir de " : ""}{p.launch}</td>)}
+						</tr>
+						<tr class="compare-old">
+							<th scope="row">Prix régulier</th>
+							{plans.map((p) => <td><s>{p.from ? "à partir de " : ""}{p.regular}</s></td>)}
+						</tr>
+					</thead>
+					<tbody>
+						{rows.map((r) => (
+							<tr>
+								<th scope="row">{r.label}</th>
+								{r.values.map((v) => (
+									<td>
+										{v === true && (<><span class="yes" aria-hidden="true">✓</span><span class="visually-hidden">Inclus</span></>)}
+										{v === false && (<><span class="no" aria-hidden="true">—</span><span class="visually-hidden">Non inclus</span></>)}
+										{typeof v === "string" && v}
+									</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<section class="section on-light cut-l">
+		<div class="wrap split-note">
+			<div data-reveal>
+				<p class="eyebrow">Pas sûr de votre formule ?</p>
+				<h2>On trouve ensemble celle qui convient.</h2>
+			</div>
+			<div data-reveal style="--d: .12s">
+				<p>Racontez-nous votre projet : on vous recommande la formule la plus juste, sans pression. Un besoin particulier ? La formule Sur mesure s'adapte à votre réalité.</p>
+				<a class="btn btn-gold" href="/contact">Demander une soumission <span aria-hidden="true">↗</span></a>
+			</div>
+		</div>
+	</section>
+</Layout>
