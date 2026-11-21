@@ -6,9 +6,8 @@
 class ConsentManager {
     constructor() {
         this.cookieName = 'gdg_consent_preferences';
-        // À renseigner depuis Google Ads : ID de balise (AW-XXXXXXXXXX) et étiquette de conversion
-        this.adsId = '';
-        this.adsLeadLabel = '';
+        // Conteneur Google Tag Manager, chargé seulement avec le consentement « Publicité »
+        this.adsId = 'GTM-NDNJ2ZZ4';
         this.consentData = this.loadConsent();
         this.init();
     }
@@ -278,19 +277,17 @@ class ConsentManager {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function () { window.dataLayer.push(arguments); };
         window.gtag('js', new Date());
-        window.gtag('config', this.adsId);
         const script = document.createElement('script');
         script.id = 'gads-script';
         script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + this.adsId;
+        script.src = 'https://www.googletagmanager.com/gtm.js?id=' + this.adsId;
         document.head.appendChild(script);
     }
 
     // Conversion « formulaire envoyé » : sans effet sans consentement
     trackLead() {
         if (!this.consentData || !this.consentData.marketing || !this.adsId || !window.gtag) return;
-        if (this.adsLeadLabel) window.gtag('event', 'conversion', { send_to: this.adsId + '/' + this.adsLeadLabel });
-        window.gtag('event', 'generate_lead');
+        window.dataLayer.push({ event: 'generate_lead' });
     }
 
     // Charger Google Fonts
